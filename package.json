@@ -1,22 +1,18 @@
 {
-  "name": "cloud-samples-spaceflight-hana"
-, "description": "HANA artefacts built using the CAP model"
-, "version": "1.0.0"
-, "dependencies": {
-    "@sap/cds": "2.x"
-  , "@sap/generator-cds": "0.0.22"
-  , "spaceflight-model": "git://github.wdf.sap.corp/te18/cloud-samples-spaceflight"
-  }
-, "scripts": {
+  "name": "cloud-samples-spaceflight-hana",
+  "description": "Reference application built according to the CAP model",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": "2.x",
+    "spaceflight-model": "git://github.wdf.sap.corp/te18/cloud-samples-spaceflight"
+  },
+  "scripts": {
     "build": "cds build --clean"
-  }
-, "cds": {
+  },
+  "cds": {
     "data": {
       "model": "db/"
     }
-  , "service": {
-      "model": "srv/"
-    }
-  }
-, "private": true
+  },
+  "private": true
 }

@@ -1,0 +1,17 @@
+ID: cloud-samples-spaceflight-hana
+_schema-version: '3.1'
+version: 0.0.1
+modules:
+  - name: db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: cloud-samples-spaceflight-hana-hdi-container
+resources:
+  - name: cloud-samples-spaceflight-hana-hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
