@@ -13,5 +13,7 @@ modules:
 resources:
   - name: cloud-samples-spaceflight-hana-hdi-container
     properties:
-      hdi-container-name: '${service-name}'
-    type: com.sap.xs.hdi-container
+      hdi-container-name: '${cloud-samples-spaceflight-spacetranB/DDg5+X2KaSdtN}'
+    type: com.sap.xs.hana-schema
+  - name: ''
+    type: com.sap.xs.hana-schema
