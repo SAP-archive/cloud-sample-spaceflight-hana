@@ -1,5 +1,1 @@
-// namespace sample;
-
-entity Base {
-  key ID : Integer;
-}
+using teched.flight.trip as spaceflight from 'spaceflight-model/db';
