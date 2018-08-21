@@ -1,17 +1,19 @@
-ID: cloud-samples-spaceflight-hana
-_schema-version: '3.1'
-version: 0.0.1
+_schema-version: "2.0.0"
+ID: spacetravel
+version: 1.0.0
+
 modules:
-  - name: db
-    type: hdb
-    path: db
-    parameters:
-      memory: 256M
-      disk-quota: 256M
-    requires:
-      - name: cloud-samples-spaceflight-hana-hdi-container
+ - name: spacetravel-db
+   type: hdb
+   path: db
+   parameters:
+     memory: 256M
+     disk-quota: 256M
+   requires:
+     - name: spacetravel-hdi2
+
 resources:
-  - name: cloud-samples-spaceflight-hana-hdi-container
-    properties:
-      hdi-container-name: '${service-name}'
-    type: com.sap.xs.hdi-container
+ - name: spacetravel-hdi2
+   properties:
+     hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

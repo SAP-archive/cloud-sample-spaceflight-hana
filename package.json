@@ -1,18 +1,14 @@
 {
-  "name": "cloud-samples-spaceflight-hana",
-  "description": "Reference application built according to the CAP model",
-  "version": "1.0.0",
+  "name": "spaceflight-model",
+  "version": "0.1.0",
   "dependencies": {
-    "@sap/cds": "2.x",
-    "spaceflight-model": "git://github.wdf.sap.corp/te18/cloud-samples-spaceflight"
+    "@sap/cds": "2.x"
   },
   "scripts": {
     "build": "cds build --clean"
   },
-  "cds": {
-    "data": {
-      "model": "db/"
-    }
+  "bin": {
+    "reuseTableData": "db/reuseTableData.js"
   },
-  "private": true
+  "license": "ISC"
 }
