@@ -1,11 +1,6 @@
 # Space Travel Sample for TechEd 2018
 
-This repository contains the basic data model for the following TechEd 2018 sessions
-- [cloud-samples-spaceflight-java](/SAP/cloud-samples-spaceflight-java): CNA 376 - Build Applications with the Programming Model on SAP Cloud Platform
-- [cloud-samples-spaceflight-node](/SAP/cloud-samples-spaceflight-node): CNA 375
-- [cloud-samples-spaceflight-hana](/SAP/cloud-samples-spaceflight-hana): CNA ???
-- [cloud-samples-spaceflight-ui](/SAP/cloud-samples-spaceflight-ui): CNA 462
-
+This repository contains a copy of the data model found in Git repository [cloud-samples-spaceflight](/SAP/cloud-samples-spaceflight)
 
 ## Data Model
 
@@ -14,6 +9,14 @@ The data model used by all these sessions is described [here](./docs/dataModel.m
 ## Core Data Services (CDS) Build Tool
 
 A brief overview of the default behaviour of the CDS Build Tool given [here](./docs/cdsCompile.md).
+
+## Exercises
+
+In this session, we perform the following exercises:
+
+1. [Build a HANA graph](./docs/ex1_create_hana_graph.md)
+1. [Build a calculation view](./docs/ex2_no_stops_calculation_view.md) to show direct flights
+1. [Build a calculation view](./docs/ex3_two_stops_calculation_view.md) to show flights needing no more than 2 stops
 
 ## License
 
