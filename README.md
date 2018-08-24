@@ -1,6 +1,6 @@
 # Space Travel Sample for TechEd 2018
 
-This repository contains a copy of the data model found in Git repository [cloud-samples-spaceflight](/SAP/cloud-samples-spaceflight)
+This repository contains a copy of the data model found in Git repository [cloud-samples-spaceflight](/../../../cloud-samples-spaceflight)
 
 ## Data Model
 
