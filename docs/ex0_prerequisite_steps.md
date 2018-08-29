@@ -119,11 +119,10 @@
     Deployment to container CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI2_1 done [Deployment ID: none].
     (11s 483ms)<br>
     13:41:43 (DIBuild) ********** End of /cloud-samples-spaceflight-hana/db Build Log **********
-    13:41:44 (Builder) Build of /cloud-samples-spaceflight-hana/db completed successfully.
-    </pre>
+    13:41:44 (Builder) Build of /cloud-samples-spaceflight-hana/db completed successfully.</pre>
 
 1. You have now used the Core Data Services (CDS) tools to do three things:
-    1. The "Build CDS" process compiles the database agnostic `.cds` files found in the `db/src` folder into files suitable for building database tables in HANA (these are the `.hdbcds` files found in the `db/src/gen/` folder)
+    1. The "Build CDS" process compiles any `.cds` files found in the `db`, `srv` and `ui` folders into files suitable for building database tables in your chosen database - HANA in this case.  The result of this compilation process is the `.hdbcds` files found in the `db/src/gen/` folder.
     1. The second Build process then deploys the `.hdbcds` files to HANA and builds the tables in your own database instance
     1. Using the instructions found in the JSON file `db/src/csv/Data.hdbtabledata`, the deploy process also pre-populates the HANA tables with data from the various CSV files found in the `db/src/csv` folder.
    
