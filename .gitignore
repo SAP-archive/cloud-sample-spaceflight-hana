@@ -1,22 +1,24 @@
-# -----------------------------------------------------------------------------
-# Ignore patterns for MacOS system files
-# -----------------------------------------------------------------------------
 .DS_Store
-
-# -----------------------------------------------------------------------------
-# Ignore patterns for NodeJS
-# -----------------------------------------------------------------------------
-node_modules/
-
-# -----------------------------------------------------------------------------
-# Ignore patterns for CDS generated files
-# -----------------------------------------------------------------------------
-gen
+*.xlsx
+*.pptx
+*.mtar
+*.log
+.*.log
+.classpath
+.project
 
 .che/
-.project
-.classpath
-.settings/
-.cds_gen.log
 .mta/
-*.mtar
+.settings/
+.xmake/
+edmx/
+gen/
+imports/
+node/
+node_modules/
+target/
+_out/
+dist/
+
+connection.properties
+metadata.xml
