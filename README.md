@@ -14,7 +14,9 @@ A brief overview of the default behaviour of the CDS Build Tool given [here](./d
 
 In this session, we perform the following exercises:
 
+1. [Prerequisite Steps](./docs/ex0_prerequisite_steps.md)
 1. [Create a HANA graph](./docs/ex1_create_hana_graph.md)
+1. [HANA Graph Showing the Shortest Path](./docs/ex2_shortest_path.md)
 1. [Create a calculation view](./docs/ex2_no_stops_calculation_view.md) to show direct flights
 1. [Create a calculation view](./docs/ex3_two_stops_calculation_view.md) to show flights needing no more than 2 stops
 
