@@ -3,35 +3,26 @@
 
 ## 0.1 Log On To Your SAP Cloud Platform Account
 
-1. The instructor will give you the logon details of the SCP account you can use for this exercise
+The instructor will provide you with the following details in order to complete these exercises:
 
-1. In your SAP Cloud Platform Cockpit, display the details of your sub-account. This is done by using the horizontal navigation menu across the top of your screen.
+1. The userid and password for the SAP Cloud Platform account
+1. The URL to start the correct instance of Full Stack Web IDE
 
-    The general format of this information is:  
-    `Region Name` / `Global Account Name` / `Sub-account Name` / `Space Name`
+### IMPORTANT
 
-    1. Click on the sub-account name and you will see a screen showing the details of your sub-account
-    1. Make sure the "Overview" option is selected from the menu down the left side of the screen, then to the right you will see a box labelled 'Cloud Foundry'
-    1. In this box you will see the URL of your API Endpoint
-    1. Make a note of this URL because you will need it to configure Web IDE
+If you already have a trial account on the SAP Cloud Platform, then please ***do not*** use it!  You will run into memory allocation problems!
 
-## 0.2 Configure Web IDE
+## 0.2 Configure Web IDE to Point to Cloud Foundry
 
-1. From your SCP cockpit, select Services from the menu down the left side
+1. Using the URL supplied by the instructor, start Web IDE
 
-1. Select "Full Stack Web IDE"
-
-1. If this service is not yet enabled, press the Enable button and wait a few minutes
-
-1. Click on "Go to service"
-
-1. In Web IDE, select the preferences icon ![Preferences](./img/Icon_Preferences.png)
+1. Select the preferences icon ![Preferences](./img/Icon_Preferences.png)
     1. From the "Workspace Preferences", select "Cloud Foundry"
-    1. Enter the name of your Cloud Foundry API endpoint that you discovered in the previous section
+    1. Select the name of your Cloud Foundry API endpoint from the drop-down list
     1. Select the Organization and Space names from the drop down lists
     1. Press the "Save" button at the bottom of the screen
-    1. Under the heading "Builder", if the button says "Install Builder", then you must also click here to perform the installation.  The installation process could take a few minutes to complete.
-    1. Once the installation has completed, press "Save" again
+    1. Please ***do not*** press the button saying "Reinstall Builder"!  
+        Firstly, this action should not be necessary, and secondly, with multiple users sharing the same Cloud Foundry Space, thus action need only be performed once per Space, not once per user.
 
 ## 0.3 Clone the Git Repository
 
@@ -51,39 +42,13 @@
 
     For more information on the behaviour of the CDS compiler, please read this [overview](./cdsCompile.md)
     
-    If you are wondering how the CDS compiler knows for which target data to compile the `.cds` files, then this configuration is found in the `mta.yaml` file.
-    
-    ```yml
-    _schema-version: "2.0.0"
-    ID: spacetravel
-    version: 1.0.0
-
-    modules:
-     - name: spacetravel-db
-       type: hdb
-       path: db
-       parameters:
-         memory: 256M
-         disk-quota: 256M
-       requires:
-         - name: spacetravel-hdi2
-
-    resources:
-     - name: spacetravel-hdi2
-       properties:
-         hdi-container-name: ${service-name}
-       type: com.sap.xs.hdi-container
-    ```
-
-    The `type` parameter on line 7 tells the CDS compiler that our database module is of type `hdb` which requires the use of resource `spacetravel-hdi2` (line 13), which in turn, is of type `com.sap.xs.hdi-container` (line 19).
-
 1. In the bottom right-hand corner of the Web IDE screen is a column of three icons.  
 
     Click on the console ![Console](./img/Icon_Console.png) icon to display the console output of the CDS build tool.  
 
     As the build tool runs, you should output similar to the following:
 
-    ```
+    ```plain_text
     10:55:20 (DIBuild) Build of "/cloud-samples-spaceflight-hana" in progress.  
     10:55:21 (DIBuild) [INFO] Injecting source code into builder...  
     [INFO] Source code injection finished[INFO] ------------------------------------------------------------------------
@@ -141,7 +106,7 @@
 
 1. As this deployment process runs, you will see several hundred lines of output in the console that will end with something similar to the following:
 
-    ```
+    ```plain_text
       Finalizing...
         Checking the uniqueness of the catalog objects in the schema "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI2_1"...
         Checking the uniqueness of the catalog objects in the schema "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI2_1"... ok
@@ -159,9 +124,9 @@
     13:41:44 (Builder) Build of /cloud-samples-spaceflight-hana/db completed successfully.
     ```
 
-1. Scroll to the very top of the console output and you will see output similar to the following:
+1. Scroll to the very top of the console and you will see output similar to the following:
 
-    ```
+    ```plain_text
     14:00:09 (Builder) Build of "/cloud-samples-spaceflight-hana/db" started.
     14:00:34 (DIBuild) Build of "/cloud-samples-spaceflight-hana/db" in progress.
     14:00:35 (DIBuild) Service provisioning for module: '/db'
@@ -180,9 +145,13 @@
     This is CDS 2.7.0, Compiler 1.0.32, Home: node_modules/@sap/cds
     ```
 
-    The important information is found on line 4 that starts with `Created the 'cloud-samples-spaceflight-hana-xxxxxxxx' instance` where `xxxxxxxx` is some randomly generated identifier.  This is the name of your HANA database instance.
+    The important information is found on the fourth line that starts with `Created the 'cloud-samples-spaceflight-hana-xxxxxxxx' instance` where `xxxxxxxx` is some randomly generated identifier.  This is the name of your HDI Container within the HANA database.
     
-    Make a note of your instance name as you will need to know this when you later connect to the database instance using the Database Explorer tool.
+    Make a note of your HDI Container name as you will need to know this when you later connect to the database using the Database Explorer tool in Web IDE.
+    
+    The reason for needing to know the HDI Container name is that during the TechEd training sessions, there will be multiple users all sharing the same Cloud Foundry Space.  A single HANA Database instance has been allocated to each Space, and within that Space (and therefore within that Sapce's HANA Database instance) each user will have their own HDI Container.
+    
+    When you perform the subsequent exercises, you will need to connect to your own HDI Container!
     
     
 ## 0.6 Summary
@@ -193,7 +162,7 @@ You have now used the Core Data Services (CDS) tools to do three things:
 
    The result of this compilation process is the `.hdbcds` files found in the `db/src/gen/` folder
 
-1. The second Build process then deploys the `.hdbcds` files to HANA and builds the tables in your own database instance
+1. The second Build process then deploys the `.hdbcds` files to HANA and builds the tables in your own HDI Container
 
 1. Using the instructions found in the JSON file `db/src/csv/Data.hdbtabledata`, the deploy process also pre-populates the HANA tables with data from the various CSV files found in the `db/src/csv` folder
    
