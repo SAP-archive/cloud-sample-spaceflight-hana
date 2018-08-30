@@ -43,9 +43,39 @@
 
 1. You should now have a project in your Web IDE workspace called `cloud-sample-spaceflight-hana`
 
-## 0.4 Build the Project
+## 0.4 Compile the `.cds` Files
 
-1. Right click on the `cloud-sample-spaceflight-hana` project name and select Build -> Build CDS
+1. Right click on the `cloud-sample-spaceflight-hana` project name and select Build -> Build CDS.  
+
+    This invokes the CDS compiler to transform all the `.cds` files found in your project into the database specific files needed to implement your data model.
+
+    For more information on the behaviour of the CDS compiler, please read this [overview](./cdsCompile.md)
+    
+    If you are wondering how the CDS compiler knows for which target data to compile the `.cds` files, then this configuration is found in the `mta.yaml` file.
+    
+    ```yml
+    _schema-version: "2.0.0"
+    ID: spacetravel
+    version: 1.0.0
+
+    modules:
+     - name: spacetravel-db
+       type: hdb
+       path: db
+       parameters:
+         memory: 256M
+         disk-quota: 256M
+       requires:
+         - name: spacetravel-hdi2
+
+    resources:
+     - name: spacetravel-hdi2
+       properties:
+         hdi-container-name: ${service-name}
+       type: com.sap.xs.hdi-container
+    ```
+
+    The `type` parameter on line 7 tells the CDS compiler that our database module is of type `hdb` which requires the use of resource `spacetravel-hdi2` (line 13), which in turn, is of type `com.sap.xs.hdi-container` (line 19).
 
 1. In the bottom right-hand corner of the Web IDE screen is a column of three icons.  
 
@@ -53,7 +83,7 @@
 
     As the build tool runs, you should output similar to the following:
 
-    <pre>
+    ```
     10:55:20 (DIBuild) Build of "/cloud-samples-spaceflight-hana" in progress.  
     10:55:21 (DIBuild) [INFO] Injecting source code into builder...  
     [INFO] Source code injection finished[INFO] ------------------------------------------------------------------------
@@ -81,9 +111,9 @@
       db/src/gen/BOOKINGSERVICE_SPACEROUTES.hdbcds
       db/src/gen/TECHED_FLIGHT_TRIP_AIRCRAFTCODES.hdbcds
       db/src/gen/TECHED_FLIGHT_TRIP_AIRLINES.hdbcds
-      db/src/gen/<span style="background-color: yellow">TECHED_FLIGHT_TRIP_AIRPORTS</span>.hdbcds
+      db/src/gen/TECHED_FLIGHT_TRIP_AIRPORTS.hdbcds
       db/src/gen/TECHED_FLIGHT_TRIP_BOOKINGS.hdbcds
-      db/src/gen/<span style="background-color: yellow">TECHED_FLIGHT_TRIP_EARTHROUTES</span>.hdbcds
+      db/src/gen/TECHED_FLIGHT_TRIP_EARTHROUTES.hdbcds
       db/src/gen/TECHED_FLIGHT_TRIP_ITINERARIES.hdbcds
       db/src/gen/TECHED_SPACE_TRIP_ASTRONOMICALBODIES.hdbcds
       db/src/gen/TECHED_SPACE_TRIP_SPACEFLIGHTCOMPANIES.hdbcds
@@ -96,15 +126,22 @@
       
       CDS return code: 0
       10:55:28 (DIBuild) ********** End of /cloud-samples-spaceflight-hana Build Log **********
-    </pre>
+    ```
 
-    Make a note of the table names: `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES` as we will need to reference these tables later using their generated name, not the entity name seen in the `db/flight-model.cds` file.
+    Make a note of the table names that appear on lines 28 and 30 above: `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`.  
+    We will need to reference these tables by their generated name and not the entity names used in the `db/flight-model.cds` file.
 
-1. Deploy the generated `.hdbcds` to HANA.  This is done by right-clicking on the `db` folder and selecting Build -> Build
+1. The `db/src/gen/` folder now contains the CDS compiler output in the form of lots of `.hdbcds` files
+
+## 0.5 Deploy The Compiled Data Model to HANA
+
+1. Before starting the deploy process, it is worth first clearing console output.  To do this, Select View -> "Clear Console" from from the Web IDE menu running across the top of the screen
+
+1. In order to deploy the generated `.hdbcds` to HANA, right-click on the `db` folder and selecting Build -> Build
 
 1. As this deployment process runs, you will see several hundred lines of output in the console that will end with something similar to the following:
 
-    <pre>
+    ```
       Finalizing...
         Checking the uniqueness of the catalog objects in the schema "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI2_1"...
         Checking the uniqueness of the catalog objects in the schema "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI2_1"... ok
@@ -119,12 +156,45 @@
     Deployment to container CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI2_1 done [Deployment ID: none].
     (11s 483ms)<br>
     13:41:43 (DIBuild) ********** End of /cloud-samples-spaceflight-hana/db Build Log **********
-    13:41:44 (Builder) Build of /cloud-samples-spaceflight-hana/db completed successfully.</pre>
+    13:41:44 (Builder) Build of /cloud-samples-spaceflight-hana/db completed successfully.
+    ```
 
-1. You have now used the Core Data Services (CDS) tools to do three things:
-    1. The "Build CDS" process compiles any `.cds` files found in the `db`, `srv` and `ui` folders into files suitable for building database tables in your chosen database - HANA in this case.  
-       The result of this compilation process is the `.hdbcds` files found in the `db/src/gen/` folder
-    1. The second Build process then deploys the `.hdbcds` files to HANA and builds the tables in your own database instance
-    1. Using the instructions found in the JSON file `db/src/csv/Data.hdbtabledata`, the deploy process also pre-populates the HANA tables with data from the various CSV files found in the `db/src/csv` folder
+1. Scroll to the very top of the console output and you will see output similar to the following:
+
+    ```
+    14:00:09 (Builder) Build of "/cloud-samples-spaceflight-hana/db" started.
+    14:00:34 (DIBuild) Build of "/cloud-samples-spaceflight-hana/db" in progress.
+    14:00:35 (DIBuild) Service provisioning for module: '/db'
+    Created the 'cloud-samples-spaceflight-hana-spadFWrNEYzOc6XjntR' instance of the 'hana' service type for the 'spacetravel-hdi2' resource.
+    [INFO] Injecting source code into builder...
+    [INFO] Source code injection finished
+    [INFO] ------------------------------------------------------------------------
+    Your module contains a package.json file, it will be used for the build.
+    14:00:38 (DIBuild)
+    > deploy@ postinstall /home/vcap/app/.java-buildpack/tomcat/temp/builder/hdi-builder/builds/build-3277892664882001306/cloud-samples-spaceflight-hana/db
+    > node conditionalBuild.js
+    added 50 packages from 27 contributors in 1.306s
+    14:00:41 (DIBuild) 
+    > spaceflight-model@0.1.0 build /home/vcap/app/.java-buildpack/tomcat/temp/builder/hdi-builder/builds/build-3277892664882001306/cloud-samples-spaceflight-hana
+    > cds build --clean
+    This is CDS 2.7.0, Compiler 1.0.32, Home: node_modules/@sap/cds
+    ```
+
+    The important information is found on line 4 that starts with `Created the 'cloud-samples-spaceflight-hana-xxxxxxxx' instance` where `xxxxxxxx` is some randomly generated identifier.  This is the name of your HANA database instance.
+    
+    Make a note of your instance name as you will need to know this when you later connect to the database instance using the Database Explorer tool.
+    
+    
+## 0.6 Summary
+
+You have now used the Core Data Services (CDS) tools to do three things:
+
+1. The "Build CDS" process compiles any `.cds` files found in the `db`, `srv` and `ui` folders into files suitable for building database tables in your chosen database - HANA in this case.  
+
+   The result of this compilation process is the `.hdbcds` files found in the `db/src/gen/` folder
+
+1. The second Build process then deploys the `.hdbcds` files to HANA and builds the tables in your own database instance
+
+1. Using the instructions found in the JSON file `db/src/csv/Data.hdbtabledata`, the deploy process also pre-populates the HANA tables with data from the various CSV files found in the `db/src/csv` folder
    
 # \</exercise>
