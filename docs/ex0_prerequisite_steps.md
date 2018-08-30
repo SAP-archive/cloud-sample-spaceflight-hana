@@ -98,7 +98,7 @@
       10:55:28 (DIBuild) ********** End of /cloud-samples-spaceflight-hana Build Log **********
     </pre>
 
-    Make a note of the highlighted table names: `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES` as we will need to reference these tables later using their generated name, not the entity name seen in the `db/flight-model.cds` file.
+    Make a note of the table names: `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES` as we will need to reference these tables later using their generated name, not the entity name seen in the `db/flight-model.cds` file.
 
 1. Deploy the generated `.hdbcds` to HANA.  This is done by right-clicking on the `db` folder and selecting Build -> Build
 
