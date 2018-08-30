@@ -5,12 +5,12 @@ TechEd 2018 Session Journey For Track CRO2
 
 ### Data Model Structure
 
-The data model is divided into two parts:
+The data model is divided into two parts - a base part and an extension:
 
 1. [***FlightModel***](./flightModel.md)  
-   Those entities needed for representing travel on earth (very similar to data structures used by the ABAP FlightModel)
+   The base data model holding those entities needed for representing travel on earth and is very similar to data structures used by the ABAP FlightModel.
 1. [***SpaceModel***](./spaceModel.md)  
-   Those entities needed to represent space travel
+   An extension to the base data model holding those entities needed to extend a journey to include space travel
 
 ### FlightModel
 
@@ -34,11 +34,7 @@ However, traveling on earth is much simpler than travelling in space for the fol
 
 In space travel though, neither of these assumptions are valid
 
-
-
-## Extra Considerations for Space Travel
-
-
+## Extra Considerations for Space Travel
 
 Travelling on earth is quite straight forward in that for short journeys, the shortest distance between two points is a straight line, and for longer journeys, the shortest distance is a ["Great Circle"](https://en.wikipedia.org/wiki/Great-circle_distance).
 
