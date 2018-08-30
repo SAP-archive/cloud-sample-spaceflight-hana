@@ -8,22 +8,22 @@
 
     ![](./img/Ex1_002_Create_File.png)
 
-1. This file is pre-populated with a template graph declaration that we will modify.  But first we need to know firstly which tables from our database will act as the vertex and edge tables of this graph, and secondly, the names of each table's key field.  
+1. This file is pre-populated with a template graph declaration that we will modify.  But before we can do this, we  need to understand what a graph is and then how to build one.
 
     ***Background***  
     A graph is built from two types of information:
     
     1. A set of points
-    1. A set of connections between these points
+    1. A set of lines drawn between these points
     
 
-    The technical word for a point is a *"vertex"*, and the technical word for a connection between two points is an *"edge"*.  Therefore, when we build a HANA graph, we must decide which table supplies vertex information, and which table supplies edge information.  Therefore, we need to answer the following questions:
+    The technical word for a point is a *"vertex"*, and the technical word for a line drawn between two points is an *"edge"*.  Therefore, when we build a HANA graph, we must answer the following questions:
 
     1. Which database tables can be used to supply the required edge and vertex information?
     1. What keys fields do these tables use?
-    1. What association is there between the data in these two tables?
+    1. What association/s is/are there between the data in these two tables?
 
-    In our case, the database table generated from the `Airports` entity will define the vertices, and the database table generated from the `Earthroutes` entity (direct flights between two airports) will define the edges.
+    In our case, our graph is going to represent all the airports and the direct flights that can be taken between those airports.  Therefore, the database table generated from the `Airports` entity will define the vertices, and the database table generated from the `Earthroutes` entity will define the edges.
     
     ***IMPORTANT***  
     Only tables with a single key field may be selected for use in a HANA Graph!
@@ -41,7 +41,9 @@
 
     ![Database List](./img/Ex1_005_Database_List.png)
 
-1. Select HDI Container and then select the `cloud-samples-spaceflight-hana-xxxxxxxx` instance. If you have only ever built the HANA database from this exercise, then you will only see one name listed here. 
+1. Select a database type of "HDI Container" and then select the `cloud-samples-spaceflight-hana-xxxxxxxx` instance (where `xxxxxxxx` is some randomly generated identifier).
+
+    If you have only ever built the HANA database from this exercise, then you will only see one name listed here. 
 
     ![Add Database](./img/Ex1_006_Add_Database.png)
 
