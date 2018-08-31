@@ -10,7 +10,8 @@ The instructor will provide you with the following details in order to complete 
 
 ### IMPORTANT
 
-If you already have a trial account on the SAP Cloud Platform, then please ***do not*** use it!  You will run into memory allocation problems!
+If you already have a trial account on the SAP Cloud Platform, then please ***do not*** use it!  
+You will run into memory allocation problems!
 
 ## 0.2 Configure Web IDE to Point to Cloud Foundry
 
@@ -22,7 +23,7 @@ If you already have a trial account on the SAP Cloud Platform, then please ***do
     1. Select the Organization and Space names from the drop down lists
     1. Press the "Save" button at the bottom of the screen
     1. Please ***do not*** press the button saying "Reinstall Builder"!  
-        Firstly, this action should not be necessary, and secondly, with multiple users sharing the same Cloud Foundry Space, thus action need only be performed once per Space, not once per user.
+        Firstly, this action should not be necessary, and secondly, with multiple users sharing the same Cloud Foundry Space, this action need only be performed once per Space, not once per user.
 
 ## 0.3 Clone the Git Repository
 
