@@ -1,5 +1,38 @@
 # Exercise 1: Create a HANA Graph
 
+Before we can build a HANA Graph, we need to understand what graphs are in general.
+
+## What is a Graph?
+
+A "graph" is a particular type of data visualisation, and is built from two types of information:
+    
+1. A set of points
+1. A set of connections between these points.  These connections usually have some property that describes the strength or "weight" of the connection
+
+The technical word for a point is a *"vertex"*, and the technical word for the connection between two points is an *"edge"*.  Therefore, when we build a HANA graph, we must answer the following questions:
+
+1. Which database tables can be used to supply the required edge and vertex information?
+1. What keys fields do these tables use?
+1. What association/s is/are there between the data in these two tables?
+1. What property (or properties) of the edge table can be used to describe the strength of connection, or "weight"?
+
+In our case, our graph is going to visualise all the direct flights that can be taken between airports.
+
+Therefore, we can answer the first question:
+
+***Q:*** *Which database tables can be used to supply the required edge and vertex information?*
+
+***A:*** The vertex information will be obtained from the database table generated from the `Airports` entity, and the edge information will be obtained from the database table generated from the `Earthroutes` entity.
+
+Notice here that the data sources are not the `Airports` or `Earthroutes` entities themselves, but rather the database tables that are generated from these entities.  This is an important distinction because we will need to discover how the CDS compiler transforms an entity name into a database table name.
+
+In order to answer the remaining questions, we need to look inside the SQL table definitions.
+
+***IMPORTANT***  
+Only tables with a single key field may be selected for use in a HANA Graph!
+
+## Exercise Steps
+
 1. Right-click on the `db/src` folder and select New -> File  
 
     ![](./img/Ex1_001_Create_File.png)
@@ -8,46 +41,13 @@
 
     ![](./img/Ex1_002_Create_File.png)
 
-1. This file is pre-populated with a template graph declaration that we will modify.  But before we can do this, we  need to understand what a graph is and then how to build one.
+1. This file is pre-populated with a template graph declaration that we will modify; however, before we can modify this file, we need to know which fields from which tables will be used
 
-    ***Background***  
-    A graph is built from two types of information:
-    
-    1. A set of points
-    1. A set of lines drawn between these points
-    
+1. Right-click on the `db` folder and select "Open HDI Container"
 
-    The technical word for a point is a *"vertex"*, and the technical word for a line drawn between two points is an *"edge"*.  Therefore, when we build a HANA graph, we must answer the following questions:
+    ![Database Explorer](./img/Ex1_003_Open_HDI_Container.png)
 
-    1. Which database tables can be used to supply the required edge and vertex information?
-    1. What keys fields do these tables use?
-    1. What association/s is/are there between the data in these two tables?
-
-    In our case, our graph is going to represent all the airports and the direct flights that can be taken between those airports.  Therefore, the database table generated from the `Airports` entity will define the vertices, and the database table generated from the `Earthroutes` entity will define the edges.
-    
-    ***IMPORTANT***  
-    Only tables with a single key field may be selected for use in a HANA Graph!
-
-
-1. Down the left side of Web IDE window is a column of icons.  Click on the Database Explorer icon  
-
-    ![Database Explorer](./img/Ex1_003_Database_Explorer.png)
-
-1. Web IDE needs to connect to the HANA database instance that you built in the prerequisite steps, so in the pop-up window, click on Connect  
-
-     ![Database Explorer](./img/Ex1_004_Database_Explorer.png)
-
-1. If you have never used this tool before, then the Database Explorer will show you an empty list.  Click on the plus sign to connect to a database instance.
-
-    ![Database List](./img/Ex1_005_Database_List.png)
-
-1. Select a database type of "HDI Container" and then select the `cloud-samples-spaceflight-hana-xxxxxxxx` instance (where `xxxxxxxx` is some randomly generated identifier).
-
-    If you have only ever built the HANA database from this exercise, then you will only see one name listed here. 
-
-    ![Add Database](./img/Ex1_006_Add_Database.png)
-
-1. Once the Database Explorer has connected to your HANA instance, you will be able to select "Tables".
+1. The Database Explorer tool now opens and connects to your HDI Container.  Now select "Tables".
 
     ![DB Tables](./img/Ex1_007_DB_Tables.png)
 
@@ -87,8 +87,7 @@
 
     ![Build Graph](./img/Ex1_010_Build_Graph.png)
 
-1. Go back to the database explorer by clicking on the icon down the left-hand side of the Web IDE screen !
-1. [Database Explorer](./img/Icon_Database_Explorer.png)
+1. Go back to the database explorer by clicking on the icon down the left-hand side of the Web IDE screen ![Database Explorer](./img/Icon_Database_Explorer.png)
 
 1. Open the graph workspaces and select the `ROUTES` graph
 
