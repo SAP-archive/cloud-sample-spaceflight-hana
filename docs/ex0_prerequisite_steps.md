@@ -36,7 +36,7 @@ If you already have a trial account on the SAP Cloud Platform, then please ***do
 
 ## 0.4 Compile and Deploy the Data Model
 
-The data model used by this project is represented using a database-independent definition.  This representation must first be compiled into a form suitable for representation in a HANA database, and secondly, that representation must then be deployed to HANA in order for the tables to be both created a populated.
+The data model used by this project is represented using a database-independent definition.  This representation must first be compiled into a form suitable for representation in a HANA database, and secondly, that representation must then be deployed to HANA in order for the tables to be both created and populated.
 
 So we must perform two steps here:
 
@@ -174,7 +174,7 @@ Currently, the CDS compiler only creates files suitable for HANA.  Compiling `.c
 
 You have now used the Core Data Services (CDS) tools to do three things:
 
-1. The "Build CDS" invokes the CDS compiler that compilesany `.cds` files found in the `db` folder into `.hdbcds` files suitable for building HANA database tables.  (The CDS compiler actually does much more than this, but here we are only interested in the compilation of  database table information)
+1. The "Build CDS" invokes the CDS compiler that compiles any `.cds` files found in the `db` folder into `.hdbcds` files suitable for building HANA database tables.  (The CDS compiler actually does much more than this, but here we are only interested in the compilation of  database table information)
 
    The result of this compilation process is the `.hdbcds` files found in the `db/src/gen/` folder
 
