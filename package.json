@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "dependencies": {
     "@sap/cds": "2.x"
+  , "spaceflight-model" : "https://github.com/SAP/cloud-sample-spaceflight"
   },
   "scripts": {
-    "build": "cds build --clean"
-  },
-  "bin": {
-    "reuseTableData": "db/reuseTableData.js"
+    "build": "cds build --clean && reuseTableData"
   },
   "license": "ISC"
 }

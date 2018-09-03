@@ -1,6 +1,3 @@
-// *********************************************************************************************************************
-// Automatically include the defintions in flight-model.cds and space-model.cds
-// *********************************************************************************************************************
-
-using from './flight-model';
-using from './space-model';
+// Reference entire base data model
+// 
+using teched.flight.trip from 'spaceflight-model/db';
