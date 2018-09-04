@@ -1,14 +1,14 @@
 # Space Travel Sample for TechEd 2018
 
-This repository contains a copy of the data model found in Git repository [cloud-samples-spaceflight](/../../../cloud-samples-spaceflight)
-
 ## Data Model
 
-The data model used by all these sessions is described [here](./docs/README.md).   Please read this description in order to gain a correct understanding how to use the data model.
+This repository references the data model found in the SAP Git repository [cloud-sample-spaceflight](https://github.com/SAP/cloud-sample-spaceflight).
 
-## Core Data Services (CDS) Build Tool
+Please read the [README file](https://github.com/SAP/cloud-sample-spaceflight/blob/master/README.md) in this repository in order to understand the data model's structure and how it should be used.
 
-A brief overview of the default behaviour of the CDS Build Tool given [here](./docs/cdsCompile.md).
+## How to Consume a CDS Data Model from a Different Repository
+
+The details of how a CDS data model held in one Git repository can be referenced from another repository is documented [here](./docs/consumeRemoteDataModel.md).
 
 ## Exercises
 
