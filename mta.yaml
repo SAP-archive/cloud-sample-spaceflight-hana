@@ -10,10 +10,10 @@ modules:
      memory: 256M
      disk-quota: 256M
    requires:
-     - name: spacetravel-hdi2
+     - name: spacetravel-hdi
 
 resources:
- - name: spacetravel-hdi2
+ - name: spacetravel-hdi
    properties:
      hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
