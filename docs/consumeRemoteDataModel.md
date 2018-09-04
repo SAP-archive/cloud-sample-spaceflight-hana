@@ -68,12 +68,12 @@ When we run the CDS compiler on our project, the following things will happen:
 
 1. Selecting Build -> Build CDS from the project's top-level context menu invokes the `npm install` command
 1. `npm` reads the top-level `package.json` file and discovers some dependencies
-1. These dependencies are imported into the local project and appear as sub-folders underneath `node_modules`.  This is now where the `spaceflight-model` module appears
+1. These dependencies are imported into the local project and appear as sub-folders underneath the `node_modules` folder.  This is now where the `spaceflight-model` module appears
 1. `npm` then invokes the `scripts.build` command found in `package.json`.
-    1. Firstly, this invokes the CDS compiler that transforms the `.cds` files into file suitable for build HANA database tables
-    1. Secondly, the `reuseTableData` script runs and copies all the `.hdbtabledata` and `.csv` files from the `node_modules/spaceflight-model/db` directory structure to the local `db/src/gen` folder.
+    1. Firstly, this invokes the CDS compiler that transforms all the copied `.cds` files in the `db` folder into files suitable for building HANA database tables. (These files appear in the `db/src/gen` folder)
+    1. Secondly, the `reuseTableData` script is invoked to copy all the `.hdbtabledata` and `.csv` files from the `node_modules/spaceflight-model/db` directory into the local `db/src/gen` folder.
 
-The data model has now been copied into our project and can be deployed to HANA.
+The data model has now been fully copied into our project and is ready to be deployed to HANA.
 
 Deployment to HANA is achieved by right-clicking on the `db/` folder name, and selecting Build -> Build
 
