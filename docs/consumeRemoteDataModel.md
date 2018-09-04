@@ -27,11 +27,11 @@ The Web IDE project stored in the public SAP repository [cloud-sample-spacefligh
     }
     ```
 
-    You are free to choose any dependency name that is appropriate.  Here, we are using the name `spaceflight-model` followed by the public Git repository name.
+    You are free to choose any dependency name that is appropriate.  Here, we are using the name `spaceflight-model` followed by the URL of the public Git repository.
 
 ## 2) Copying the Instructions to Load Tables with Data
 
-One further detail here concerns the fact that in the original repository, the data model contains additional instructions to populate the tables with data at the time the database is deployed.
+One important detail here concerns the fact that in the original repository, the data model contains additional instructions to populate the tables with data at the time the database is deployed.
 
 These instructions are stored in the file [`db/src/csv/Data.hdbtabledata`](https://github.com/SAP/cloud-sample-spaceflight/blob/master/db/src/csv/Data.hdbtabledata) of the external repository, and the actual data to be loaded into the database is stored in the various `.csv` files found in [the same folder](https://github.com/SAP/cloud-sample-spaceflight/blob/master/db/src/csv).
 
@@ -41,14 +41,14 @@ To solve this problem, in the `scripts` object of `package.json` shown above, yo
 
 The name `reuseTableData` is declared in the `bin` object of the top-level [`package.json`](https://github.com/SAP/cloud-sample-spaceflight/blob/master/package.json) file of the external repository.  This means that the name `reuseTableData` is available in the path used by `npm install` and can now be referenced by any other dependant NPM module.
 
-The result of running this script is that the `.hdbtabledata` and `.csv` files are copied from the `node_modules` folder into our `db/src/gen` folder after the CDS compiler has run.
+The result of running this script is that the `.hdbtabledata` and `.csv` files are copied from the `node_modules/spaceflight-model/db` folder into our `db/src/gen` folder.
 
 
 ## 3) Using the Referenced Data Model
 
 We have now done three things:
 
-1. We have declared an NPM dependency for an external repository that contains a CDS Data Model
+1. We have declared an NPM dependency on an external repository that contains a CDS Data Model
 1. We have given this dependency the name `spaceflight-model`
 1. We have invoked a workaround script called `reuseTableData` to copy the instructions for loading our database tables into our local `db/src/gen` folder
 
@@ -64,13 +64,13 @@ This is all that is needed to import the data model from the `db` folder inside 
 
 ## 4) So What Happens When We Run the CDS Compiler?
 
-When we run the CDS compiler on our project, the following things will happen:
+When we now run the CDS compiler on our project, the following things will happen:
 
 1. Selecting Build -> Build CDS from the project's top-level context menu invokes the `npm install` command
 1. `npm` reads the top-level `package.json` file and discovers some dependencies
 1. These dependencies are imported into the local project and appear as sub-folders underneath the `node_modules` folder.  This is now where the `spaceflight-model` module appears
 1. `npm` then invokes the `scripts.build` command found in `package.json`.
-    1. Firstly, this invokes the CDS compiler that transforms all the copied `.cds` files in the `db` folder into files suitable for building HANA database tables. (These files appear in the `db/src/gen` folder)
+    1. Firstly, this invokes the CDS compiler that transforms all the copied `.cds` files in the `db` folder into files suitable for building HANA database tables. (These files then appear in the `db/src/gen` folder)
     1. Secondly, the `reuseTableData` script is invoked to copy all the `.hdbtabledata` and `.csv` files from the `node_modules/spaceflight-model/db` directory into the local `db/src/gen` folder.
 
 The data model has now been fully copied into our project and is ready to be deployed to HANA.
@@ -79,7 +79,7 @@ Deployment to HANA is achieved by right-clicking on the `db/` folder name, and s
 
 ## 5) By the Way...
 
-As an aside, since the data model is contained within a single namespace, and we wish to consume everything in this data model, it is actually unnecessary to provide the name of the namespace in the `index.cds` file.
+As an aside, since our particular data model is contained within a single namespace, and we wish to consume everything in this data model, it is actually unnecessary to provide the name of the namespace in the `index.cds` file.
 
 Instead, the following instruction will work equally well because this means ***use the entire data model*** found in the `spaceflight-model/db` folder:
 
