@@ -1,5 +1,5 @@
 {
-  "name": "spaceflight-model",
+  "name": "spaceflight-model-hana",
   "version": "0.1.0",
   "dependencies": {
     "@sap/cds": "2.x"
