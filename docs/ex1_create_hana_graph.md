@@ -71,9 +71,9 @@ Only tables with a single key field may be selected for use in a HANA Graph!
     * The name of our graph is `ROUTES`
     * The edges of our graph correspond to the entries in table `TECHED_FLIGHT_TRIP_EARTHROUTES`
     * The vertices of our graph correspond to the entries in table `TECHED_FLIGHT_TRIP_AIRPORTS`
-    * Table `TECHED_FLIGHT_TRIP_EARTHROUTES` has a key field called `ID`
-    * Table `TECHED_FLIGHT_TRIP_AIRPORTS` has a key field called `IATA3`
-    * The each direct flight listed in table `TECHED_FLIGHT_TRIP_EARTHROUTES` has a starting airport and a destination airport; therefore, the data in association `STARTINGAIRPORT_IATA3` defines where an edge starts, and the data in association `DESTINATIONAIRPORT_IATA3` defines where an edge stops.
+    * Table `TECHED_FLIGHT_TRIP_EARTHROUTES` has a key field called `ID` and table `TECHED_FLIGHT_TRIP_AIRPORTS` has a key field called `IATA3`
+    * The each direct flight listed in table `TECHED_FLIGHT_TRIP_EARTHROUTES` has a starting airport and a destination airport; therefore, the data in association `STARTINGAIRPORT_IATA3` defines where an edge starts, and the data in association `DESTINATIONAIRPORT_IATA3` defines where an edge stops
+    * The `DISTANCE` field in table `TECHED_FLIGHT_TRIP_EARTHROUTES` can be used to define the weight of the connection between two vertices
 
     <pre>
     GRAPH WORKSPACE "<span style="background-color: yellow">ROUTES</span>"
