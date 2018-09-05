@@ -51,19 +51,19 @@ You will run into memory allocation problems!
 
 ## 0.5 Compile and Deploy the Data Model to HANA
 
-The data model used by this project is imported from a different Git repository <https://github.com/SAP/cloud-sample-spaceflight-hana.git>.
+The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.
 
-This data model needs first to be compiled, then deployed to HANA.  So we must perform two steps here:
+Out use of this data model needs first to be compiled, then deployed to HANA.  So we must perform two steps here:
 
 1. Compile all the `.cds` files in the `db` directory and produce a set of HANA specific `.hdbcds` files in the `db/src/gen` folder
-1. Deploy the compiled database definition to HANA.  This step contains additional information to populate the database tables
+1. Deploy the compiled database definition to an HDI Container.  This step also populates the database tables
 
 Currently, the CDS compiler can only create files suitable for the HANA database.  Compiling `.cds` files for other target databases is planned for the future.
 
 ### 0.5.1 Compile the Data Model
 
 1. Right click on the `cloud-sample-spaceflight-hana` project name and select Build -> Build CDS.  
-    For more information on the behaviour of the CDS compiler, please read this [brief overview](./cdsCompile.md)
+    For more information on the behaviour of the CDS compiler, please read this [brief overview](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/cdsCompile.md)
     
 1. In the bottom right-hand corner of the Web IDE screen is a vertical menu.  
 
@@ -124,7 +124,7 @@ Currently, the CDS compiler can only create files suitable for the HANA database
 
 1. Before starting the deploy process, it is worth first clearing console output.  To do this, Select View -> "Clear Console" from the Web IDE menu running across the top of the screen
 
-1. In order to deploy the generated `.hdbcds` to HANA, right-click on the `db` folder and selecting Build -> Build
+1. In order to deploy the generated `.hdbcds` to your HDI Container, right-click on the `db` folder and selecting Build -> Build
 
 1. As this deployment process runs, you will see several hundred lines of output in the console that will end with something similar to the following:
 
@@ -137,7 +137,7 @@ Currently, the CDS compiler can only create files suitable for the HANA database
      Making... ok
      Starting make in the container "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI_1" with 33 files to deploy, 0 files to undeploy... ok
     Deploying to the container "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI_1"... ok (9s 316ms)
-    No default-access-role handling needed; global role "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI2_1::access_role" will not be adapted
+    No default-access-role handling needed; global role "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI_1::access_role" will not be adapted
     Unlocking the container "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI_1"...
     Unlocking the container "CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI_1"... ok (0s 0ms)
     Deployment to container CLOUD_SAMPLES_SPACEFLIGHT_HANA_SPACETRAVEL_HDI_1 done [Deployment ID: none].
@@ -152,7 +152,7 @@ Currently, the CDS compiler can only create files suitable for the HANA database
     14:00:09 (Builder) Build of "/cloud-samples-spaceflight-hana/db" started.
     14:00:34 (DIBuild) Build of "/cloud-samples-spaceflight-hana/db" in progress.
     14:00:35 (DIBuild) Service provisioning for module: '/db'
-    Created the 'cloud-samples-spaceflight-hana-spadFWrNEYzOc6XjntR' instance of the 'hana' service type for the 'spacetravel-hdi2' resource.
+    Created the 'cloud-samples-spaceflight-hana-spadFWrNEYzOc6XjntR' instance of the 'hana' service type for the 'spacetravel-hdi' resource.
     [INFO] Injecting source code into builder...
     [INFO] Source code injection finished
     [INFO] ------------------------------------------------------------------------
@@ -177,12 +177,12 @@ Currently, the CDS compiler can only create files suitable for the HANA database
 
 You have now used the Core Data Services (CDS) tool in two stages to achieve three things:
 
-1. The "Build CDS" invokes the CDS compiler that compiles any `.cds` files found in the `db` folder into the `.hdbcds` found in the `db/src/gen/` folder.  (The CDS compiler actually does much more than this, but here we are only interested in the compilation of  database table information)
+1. "Build CDS" invokes the CDS compiler that compiles any `.cds` files found in the `db` folder into the `.hdbcds` found in the `db/src/gen/` folder.  (The CDS compiler actually does much more than this, but here we are only interested in the compilation of  database table information)
 
 1. The second Build process then does two things:
 
-    1. Using the name of your Cloud Foundry Space configured in your Web IDE preferences, it sends the `.hdbcds` table information to the database builder tool installed in t=your CF Space.  The database Builder tool the generates the database tables in your HDI container
+    1. Using the name of your Cloud Foundry Space configured in your Web IDE preferences, it sends the `.hdbcds` table information to the database builder tool installed in your CF Space.  The database Builder tool then generates the database tables in your HDI container
 
-    1. Using the configuration found in the JSON file `db/src/csv/Data.hdbtabledata`, the database builder then populates the tables with the data from the various `.csv` files in the `db/src/csv` folder
+    1. Using the configuration found in the JSON file `db/src/csv/Data.hdbtabledata`, the database builder then populates the database tables from the various `.csv` files in the `db/src/csv` folder
    
 # \</exercise>
