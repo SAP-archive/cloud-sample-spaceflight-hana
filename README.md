@@ -32,9 +32,9 @@ Read the [getting started tutorial](https://help.sap.com/viewer//65de2977205c403
 
 Now clone your fork of this repository (*File -> Git -> Clone Repository*).
 
-#### Develop, Build, Deploy
+### Develop, Build, Deploy
 
-Build and deploy the DB module by choosing *Build* from the context menu of the db folder.
+Build and deploy the DB module by choosing *Build* from the context menu of the `db` folder.
 
 
 ## Known Issues
