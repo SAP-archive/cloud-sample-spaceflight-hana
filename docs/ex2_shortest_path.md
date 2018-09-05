@@ -18,11 +18,21 @@ So lets use the HANA Graph to calculate firstly ***a*** route, and secondly, the
 
     ![Via Panama](./img/Ex2_002_Via_Heathrow.png)
     
-1. This is certainly a popular route, but it does not cover the shortest distance.  So now let's add the `DISTANCE` field as the weight column and press Apply again
+    You might be wondering why the HANA graph proposed this route.
+    
+    The HANA graph found all the paths with the least number of edges between the `MAD` vertex and the `LAS` vertex, then in the absence of any other information, simply presented us with the first of these paths.
+    
+    Hence `MAD` -> `LHR` -> `LAS`.
+    
+1. This is certainly a popular route, but its not what we're looking.
+
+    If we now want to find the path with the shortest geographical distance, we must additionally tell the HANA graph which field to examine in order to discover the path with the lowest weight.
+
+    So now let's add the `DISTANCE` field as the weight column and press Apply again
 
     ![Shortest Path](./img/Ex2_003_Shortest_Path.png)
 
-1. Now the HANA graph has found the shortest distance.  In this case we are being routed through Chicago's O'Hare International Airport (this journey is approximately 500Km shorter than flying via London)
+1. Now the HANA graph has found the path with the lowest weight - or in less academic language, the route with the shortest geographical distance.  In this case we are being routed through Chicago's O'Hare International Airport which shortens the journey by approximately 500Km
 
     ![Shortest Path](./img/Ex2_004_Via_Chicago.png)
 
