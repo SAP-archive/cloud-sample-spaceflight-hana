@@ -6,7 +6,7 @@ This repository references the data model found in the SAP Git repository [cloud
 
 Please read the [flight model](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/flightModel.md) and [space model](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/spaceModel.md) documentation in the referenced repository in order to understand the data model's structure and how it should be used.
 
-## How to Consume a CDS Data Model from a Different Repository
+## How to Consume a CDS Data Model from a Different Git Repository
 
 The details of how a CDS data model held in one Git repository can be referenced from another repository is documented [here](./docs/consumeRemoteDataModel.md).
 
@@ -17,8 +17,8 @@ In this session, we perform the following exercises:
 1. [Prerequisite Steps](./docs/ex0_prerequisite_steps.md)
 1. [Create a HANA graph](./docs/ex1_create_hana_graph.md)
 1. [HANA Graph Showing the Shortest Path](./docs/ex2_shortest_path.md)
-1. [Create a calculation view](./docs/ex2_no_stops_calculation_view.md) to show direct flights
-1. [Create a calculation view](./docs/ex3_two_stops_calculation_view.md) to show flights needing no more than 2 stops
+1. [Create a calculation view](./docs/ex3_no_stops_calc_view.md) to show direct flights
+1. [Create a calculation view](./docs/ex4_one_stop_calc_view.md) to show routes needing 1 stop
 
 
 ### For SAP TechEd

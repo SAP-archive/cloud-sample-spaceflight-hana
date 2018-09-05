@@ -6,7 +6,8 @@ So lets use the HANA Graph to calculate firstly ***a*** route, and secondly, the
 
 1. Click on the "Algorithm" icon `<>` in the top left corner then from the drop-down menu, select "Shortest Path".
 
-1. Now select the location codes of your starting and destination airports. In this case, we wish to travel from Madrid (`MAD`) to Las Vegas (`LAS`).
+1. Now enter the location codes of your starting and destination airports.  
+    In this case, we wish to travel from Madrid (`MAD`) to Las Vegas (`LAS`).
 
     ***IMPORTANT***  
     The values you enter in the Start and End Vertex fields are case-sensitive!
