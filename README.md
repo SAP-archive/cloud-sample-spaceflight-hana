@@ -4,7 +4,7 @@
 
 This repository references the data model found in the SAP Git repository [cloud-sample-spaceflight](https://github.com/SAP/cloud-sample-spaceflight).
 
-Please read the [README file](https://github.com/SAP/cloud-sample-spaceflight/blob/master/README.md) in this repository in order to understand the data model's structure and how it should be used.
+Please read the [flight model](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/flightModel.md) and [space model](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/spaceModel.md) documentation in the referenced repository in order to understand the data model's structure and how it should be used.
 
 ## How to Consume a CDS Data Model from a Different Repository
 
