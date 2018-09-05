@@ -7,7 +7,7 @@ Before we can build a HANA Graph, we need to understand what graphs are in gener
 A "graph" is a mathematical term for particular type of data visualisation, and is built from two types of information:
     
 1. A set of points
-1. A set of connections between these points.  These connections usually have some property that describes the strength or "weight" of the connection
+1. A set of connections between these points.  These connections usually have some property that describes the strength (or "weight") of the connection
 
 The technical word for a point is a *"vertex"*, and the technical word for the connection between two points is an *"edge"*.  Therefore, when we build a HANA graph, we must answer the following questions:
 
@@ -19,14 +19,14 @@ The technical word for a point is a *"vertex"*, and the technical word for the c
 
 In our case, our graph is going to visualise all the direct flights that can be taken between airports. Therefore, we can answer the first two questions:
 
-> The edge information will be obtained from the database table generated from the `Earthroutes` entity
+> The edge information will be obtained from the database table generated from the `Earthroutes` entity  
 > The vertex information will be obtained from the database table generated from the `Airports` entity
 
 Notice here that the data sources are not the `Airports` or `Earthroutes` entities themselves, but rather the database tables that are generated from these entities.  
 
-Do you remember from the [prerequisites exercise](./ex0_prerequisite_steps.md) you were asked to make a note of the table names `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`?  Well, this is where we will need to know these table names.
+Do you remember from section 0.5.1 of the [prerequisites steps](./ex0_prerequisite_steps.md) you were asked to make a note of the table names `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`?  In order to define the HANA graph, we need to know these two table names.
 
-This is an important distinction because we will need to understand how the CDS compiler transforms an entity name into a database table name.
+This is an important distinction because we need to understand how the CDS compiler transforms an entity name in a `.cds` file into a database table name (defined in a `.hdbcds` file).
 
 In order to answer the remaining questions, we need to look inside the SQL table definitions.
 
@@ -46,7 +46,7 @@ Only tables with a single key field may be selected for use in a HANA Graph!
 
 1. This file is pre-populated with a template graph declaration that we will modify; however, before we can modify this file, we need to know which fields from which tables will be used
 
-1. Right-click on the `db` folder and select "Open HDI Container"
+1. Right-click on the `db` folder and select "Open HDI Container".  In order for this step to work correctly, you must first have already compiled and deployed your data model to HANA (as detailed in the [prerequisites steps](./ex0_prerequisite_steps.md))
 
     ![Database Explorer](./img/Ex1_Open_HDI_Container.png)
 
@@ -58,7 +58,7 @@ Only tables with a single key field may be selected for use in a HANA Graph!
 
     ![Earthroutes](./img/Ex1_Table_Earthroutes.png)
     
-    Here we can see that this table's key field is called `ID`
+    Here we can see that this table's key field is called `ID`.  There are also two other fields that contain the IATA location codes of the starting and destination airports.
     
 1. Now display the table `TECHED_FLIGHT_TRIP_AIRPORTS`.
 
@@ -69,9 +69,10 @@ Only tables with a single key field may be selected for use in a HANA Graph!
 1. We now have enough information to declare our HANA Graph
 
     * The name of our graph is `ROUTES`
-    * Each entry in table `TECHED_FLIGHT_TRIP_EARTHROUTES` represents a direct flight between two airports.  Therefore, this data can be used to draw the lines (or edges) of our graph.  
-      This table has the key field `ID`
-    * The points of our graph (or vertices) are defined in table `TECHED_FLIGHT_TRIP_AIRPORTS` that has the key field `IATA3`
+    * The edges of our graph correspond to the entries in table `TECHED_FLIGHT_TRIP_EARTHROUTES`
+    * The vertices of our graph correspond to the entries in table `TECHED_FLIGHT_TRIP_AIRPORTS`
+    * Table `TECHED_FLIGHT_TRIP_EARTHROUTES` has a key field called `ID`
+    * Table `TECHED_FLIGHT_TRIP_AIRPORTS` has a key field called `IATA3`
     * The each direct flight listed in table `TECHED_FLIGHT_TRIP_EARTHROUTES` has a starting airport and a destination airport; therefore, the data in association `STARTINGAIRPORT_IATA3` defines where an edge starts, and the data in association `DESTINATIONAIRPORT_IATA3` defines where an edge stops.
 
     <pre>
