@@ -12,18 +12,18 @@ The Web IDE project stored in the public SAP repository [cloud-sample-spacefligh
 
 1. Edit the top-level `package.json` file of your project to include an NPM dependency to the external repository.
 
-    ```
+    ```json
     {
-      "name": "spaceflight-model-hana",
-      "version": "0.1.0",
-      "dependencies": {
+      "name": "spaceflight-model-hana"
+    , "version": "0.1.0"
+    , "dependencies": {
         "@sap/cds": "2.x"
-      , "spaceflight-model" : "https://github.com/SAP/cloud-sample-spaceflight"
-      },
-      "scripts": {
+      , "spaceflight-model": "https://github.com/SAP/cloud-sample-spaceflight"
+      }
+    , "scripts": {
         "build": "cds build --clean && reuseTableData"
-      },
-      "license": "ISC"
+      }
+    , "license": "ISC"
     }
     ```
 

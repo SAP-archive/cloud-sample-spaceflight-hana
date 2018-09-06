@@ -44,9 +44,11 @@ You will run into memory allocation problems!
 
 ## 0.4 Create a New Project
 
-You have two options for how to create a new project.  You can either create it manually, or clone the Git repository.  However, irrespective of how you create the project, you will still need to build and deploy it to you HANA HDI Container.
+You have two options for how to create a new project.  You can either create it manually, or clone the Git repository.  However, irrespective of how you create the project, you will still need to build and deploy it to your HANA HDI Container in Cloud Foundry.
 
-![Development](./img/Icon_Development.png) For both approaches, you need to select the development perspective in Web IDE.  From the menu down the left side of the screen, select the Web IDE development view 
+For both approaches, you need to select the development perspective in Web IDE.
+
+From the menu down the left side of the screen, select the Web IDE development view ![Development](./img/Icon_Development.png)
 
 
 ### Create the Project By Cloning the Git Repository
@@ -125,7 +127,7 @@ You have two options for how to create a new project.  You can either create it 
     }
     ```
 
-    Notice that a dependency called `spaceflight-model` has been added.  This is how we can reference the CDS data model held in a separate Git repository.
+    Notice that an NPM dependency called `spaceflight-model` has been added.  This is how we can reference a CDS data model held in a separate Git repository.
 
     For a full explanation of what these instructions do, please read [How to Consume a CDS Data Model from a Different Git Repository](./consumeRemoteDataModel.md)
 
@@ -133,23 +135,23 @@ You have two options for how to create a new project.  You can either create it 
 
     ```using teched.flight.trip from 'spaceflight-model/db';```
     
-    At this point however, the syntax checker will inform you that this file contains a a syntax error.  This error is not real and you don't have to worry about it!
+    At this point however, the syntax checker will inform you that this file contains a syntax error.  This is a false error and you don't have to worry about it!
     
     ![False syntax error](./img/Ex0_Syntax_Error.png)
     
-    This is because the syntax checker has assumed the reference to `spaceflight` refers to some CDS file in the same project, when in fact, it refers to the name of an NPM dependency that will not exist until we run the CDS Compiler.
+    The error comes from the fact that the syntax checker has assumed the reference to `spaceflight` refers to some local CDS file in the current project, when in fact, it refers to the name of an NPM dependency that will not exist until we run the CDS Compiler.
 
 
 ## 0.5 Compile and Deploy the Data Model to HANA
 
 The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.
 
-Out use of this data model needs first to be compiled, then deployed to HANA.  So we must perform two steps here:
+This data model needs first to be compiled, then deployed to HANA.  So we must perform two steps here:
 
 1. Compile all the `.cds` files in the `db` directory and produce a set of HANA specific `.hdbcds` files in the `db/src/gen` folder
 1. Deploy the compiled database definition to an HDI Container.  This step also populates the database tables
 
-Currently, the CDS compiler can only create files suitable for the HANA database.  Compiling `.cds` files for other target databases is planned for the future.
+> Currently, the CDS compiler can only create files suitable for the HANA database.  Compiling `.cds` files for other target databases is planned for the future.
 
 ### 0.5.1 Compile the Data Model
 
