@@ -54,13 +54,15 @@ We have now done three things:
 
 What remains is now to reference the `spaceflight-model` in our own `.cds` file.
 
-In the `db` folder of our project, there is a single [`index.cds`](../db/index.cds) file that contains the following single line:
+In the `db` folder of our project, there is a single `.cds` file.  If you created the project manually, then this file will be called `data-model.cds`, otherwise if you cloned the template repository, it will be called [`index.cds`](../db/index.cds).
+
+Either way, this file only needs to contain the following single line:
 
 ```
 using teched.flight.trip from 'spaceflight-model/db';
 ```
 
-This is all that is needed to import the data model from the `db` folder inside the NPM dependency called `spaceflight-model`.
+All we must ensure is that the name `spaceflight-model` used here, matches the dependency name defined in `package.json`.  This is all that is needed to import the data model from the `db` folder inside the NPM dependency called `spaceflight-model`.
 
 ## 4) So What Happens When We Run the CDS Compiler?
 
@@ -73,7 +75,7 @@ When we now run the CDS compiler on our project, the following things will happe
     1. Firstly, this invokes the CDS compiler that transforms all the copied `.cds` files in the `db` folder into files suitable for building HANA database tables. (These files then appear in the `db/src/gen` folder)
     1. Secondly, the `reuseTableData` script is invoked to copy all the `.hdbtabledata` and `.csv` files from the `node_modules/spaceflight-model/db` directory into the local `db/src/gen` folder.
 
-The data model has now been fully copied into our project and is ready to be deployed to HANA.
+All the necessary data model files have been copied into our project and it is now ready to be deployed to HANA.
 
 Deployment to HANA is achieved by right-clicking on the `db/` folder name, and selecting Build -> Build
 
@@ -81,8 +83,16 @@ Deployment to HANA is achieved by right-clicking on the `db/` folder name, and s
 
 As an aside, since our particular data model is contained within a single namespace, and we wish to consume everything in this data model, it is actually unnecessary to provide the name of the namespace in the `index.cds` file.
 
-Instead, the following instruction will work equally well because this means ***use the entire data model*** found in the `spaceflight-model/db` folder:
+Instead, of writing:
+
+```
+using teched.flight.trip from 'spaceflight-model/db';
+```
+
+We could equally well have written:
 
 ```
 using from 'spaceflight-model/db';
 ```
+
+because this means ***use the entire data model*** found in the `spaceflight-model/db` folder.
