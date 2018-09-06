@@ -1,11 +1,12 @@
 # Exercise 0.5: Compile and Deploy the Data Model to HANA
 
-The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.  However, we are only importing the CDS files that define the data model, we are ***not*** importing a working database implementation.
+The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.
 
-Therefore, after importing the data model, we must perform two steps:
+***IMPORTANT***  
+We are ***not*** importing a working HANA database.  We are only importing the CDS files that define the what the database tables will look like when deployed to HANA.  Therefore, after importing the data model, we must perform two steps:
 
 1. Compile the data model
-1. Deploy the compiled database definition to an HDI Container.  This step also populates the database tables
+1. Deploy the compiled database definition to an HDI Container.  This step has been configured so that it will additionally populate the database tables
 
 > Currently, the CDS compiler can only create files suitable for the HANA database.  Compiling `.cds` files for other target databases is planned for the future.
 
@@ -69,14 +70,14 @@ Therefore, after importing the data model, we must perform two steps:
     16:15:20 (DIBuild) ********** End of /cloud-sample-spaceflight-hana Build Log **********
     ```
 
-    Make a note of the table names `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`.  In a leter exercise, we will need to reference these tables by their generated name and not by the entity names used in the referenced [`flight-model.cds`](https://github.com/SAP/cloud-sample-spaceflight/blob/master/db/flight-model.cds) file.
+    Make a note of the table names `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`.  In a later exercise, we will need to reference these tables by their generated name and not by the entity names used in the referenced [`flight-model.cds`](https://github.com/SAP/cloud-sample-spaceflight/blob/master/db/flight-model.cds) file.
 
 1. As a result of running the CDS Compiler, you will now find that your `db/src/gen` folder has been populated.  These are the files that now need to be deployed to your HANA HDI Container.
 
 
-## 0.5.2 Deploy The Compiled Data Model to HANA
+## 0.5.2 Deploy the Compiled Data Model to HANA
 
-1. Before starting the deploy process, it is worth first clearing console output.  To do this, Select View -> "Clear Console" from the Web IDE menu running across the top of the screen
+1. Before starting the deploy process, it is worth first clearing the console output.  To do this, Select View -> "Clear Console" from the Web IDE menu running across the top of the screen
 
 1. In order to deploy the generated `.hdbcds` to your HDI Container, right-click on the `db` folder and select Build -> Build
 

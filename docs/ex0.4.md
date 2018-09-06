@@ -92,15 +92,17 @@ You have now finished this pre-requisite step.
 
     For a full explanation of what these instructions do, please read [How to Consume a CDS Data Model from a Different Git Repository](./consumeRemoteDataModel.md)
 
-1. Finally, edit `db/data-model.cds`.  Delete the only line in this file and replace it with:
+1. Finally, edit `db/data-model.cds`.
+
+    Delete the only line in this file and replace it with:
 
     ```using teched.flight.trip from 'spaceflight-model/db';```
     
-    At this point however, the syntax checker will inform you that this file contains a syntax error.  This is a false error and you don't have to worry about it!
+    At this point however, the syntax checker will inform you that this file contains a syntax error.  This is a false error message and you don't have to worry about it!
     
     ![False syntax error](./img/Ex0_Syntax_Error.png)
     
-    The error comes from the fact that the syntax checker has assumed the reference to `spaceflight` refers to some local CDS file in the current project, when in fact, it refers to the name of an NPM dependency that will not exist until we run the CDS Compiler.
+    The error comes from the fact that the syntax checker has assumed the reference to `spaceflight-model` refers to some local CDS file in the current project, when in fact, it refers to the name of an NPM dependency that will not exist until ***after*** we have run the CDS Compiler.
 
    
 # \</exercise>
