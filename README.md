@@ -1,7 +1,5 @@
 # Space Travel Sample for TechEd 2018
 
-The repository is no longer maintained.  Please use <https://github.com/SAP/cloud-sample-spaceflight-hana> instead.
-
 ## Data Model
 
 This repository references the data model found in the SAP Git repository [cloud-sample-spaceflight](https://github.com/SAP/cloud-sample-spaceflight).
