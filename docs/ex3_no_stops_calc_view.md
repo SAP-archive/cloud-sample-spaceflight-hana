@@ -14,9 +14,9 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Calculation View Name](./img/Ex3_Route0Stops.png)
 
-1. Now we need to add a projection.  If is is not already expanded, expand the sidebar menu on the calculation view editor by clicking on the `>>` icon.
+1. Now we need to add a projection.  If it is not already expanded, expand the sidebar menu on the calculation view editor by clicking the `>>` icon.
 
-    Select the "Projection" tool then drop a new projection as shown in the diagram below
+    Select the "Projection" tool then drop a new projection as shown in the screen shot below
 
     ![Calculation View Name](./img/Ex3_New_Projection.png)
 
@@ -37,21 +37,26 @@ In order to start this exercise, you must first have compiled and deployed your 
     
     ![Detail Pane](./img/Ex3_Detail_Pane.png)
 
-1. We must now map the columns from our source table to the projection.  Click on the table name and drag the entire table to the "Output Columns" area on the right.
+1. We must now decide which columns in the underlying database table will be "projected" though to the calculation view.  In this case, we will take the simple option and select everything! :-)
+
+    Click on the table name and drag the entire table to the "Output Columns" area on the right.
 
     ![Data Mapping](./img/Ex3_Data_Mapping_Before.png)
 
-1. Now, every column in the `TECHED_FLIGHT_TRIP_EARTHROUTES` table has been selected to supply data to the projection
+1. Now, every column in the `TECHED_FLIGHT_TRIP_EARTHROUTES` table will be projected through to the calculation view.
 
     ![Data Mapping](./img/Ex3_Data_Mapping_After.png)
 
-1. We now need to add two input parameters: `airportFrom` and `airportTo`.  For each of the input parameters shown in the table below, repeat the following steps.
+1. If we stopped at this point, there would be little point in having a projection, since all we have done so far is directly expose the entire underlying database table.  So we will now add two input parameters to allow the data to be filtered.  We will call these input parameters `airportFrom` and `airportTo`.
+
+    For each of the input parameters shown in the table below, repeat the following steps.
 
     | Name | Is Mandatory | Data Type | Length |
     |---|:-:|---|:-:|
     | `airportFrom` | ![Tick](./img/tick.png) | `NVARCHAR` | 3
     | `airportTo` | ![Tick](./img/tick.png) | `NVARCHAR` | 3
     
+
     1. From the Project screen, select the "Parameters" tab, then click on the plus icon and select "Input Parameter"
     ![New Input Parameter Step 1](./img/Ex3_Add_Input_Param1.png)
 
@@ -65,7 +70,7 @@ In order to start this exercise, you must first have compiled and deployed your 
     ![New Input Parameter Step 4](./img/Ex3_Add_Input_Param4.png)
 
 
-1. Now we need to add a filter expression.  Select the "Filter Expression" tab from the Projection editor
+1. Now we need to act upon the values received as input parameters.  This is where a filter expression is used.  Select the "Filter Expression" tab from the Projection editor
 
    ![Add Filter Step 1](./img/Ex3_Add_Filter1.png)
 
@@ -77,6 +82,8 @@ In order to start this exercise, you must first have compiled and deployed your 
     "DESTINATIONAIRPORT_IATA3" = '$$airportTo$$'
     ```
 
+    Here we have created a filter condition that will be applied to every row of the table.  Notice the "double dollar" delimiters used to distinguish an input parameter name
+    
     Then press Validate Syntax
     
     ![Validate Syntax](./img/Ex3_Add_Filter2.png)
@@ -95,7 +102,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
 1.  Click on the main Projection and select the "Mapping" tab at the top of the detail pane.
     
-    Notice that `Projection_1` is now the data source rather than the underlying database table. This means that we are now looking at only those fields that have been "projected" from the underlying database table through whatever rules and conditions exist in `Projection_1`.  In this case, we are looking at all the fields from the table, but in general, a projection is the place where you customised how the data in a table is to be through the calculation view.
+    Notice that `Projection_1` is now the data source rather than the underlying database table. This means that we are now looking at only those fields that have been "projected" from the underlying database table through whatever rules and conditions exist in `Projection_1`.  In this case, we are looking at all the fields from the table, but in general, a projection is the place where you can customise what table data is visible through the calculation view.
     
     Drag all of `Projection_1` onto the Output Columns area.
     
@@ -158,7 +165,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 1. In the `airportFrom` and `airportTo` fields, enter the 3-character location codes of your desired route.  For instance you can search for direct flights from John F. Kennedy Airport in New York (`JFK`) to Las Vegas (`LAS`)
 
     ***Important***  
-    The input parameter values are case-sensitive!
+    These input parameter values are case-sensitive!
 
     ***Warning***  
     Due to a bug in the UI here, you need to enter the value in the ***second*** input parameter first; that is, enter the value for `airportTo` first, then press enter.  At this point you'll see the value for the first input parameter has now been populated with the value from the second input parameter.   Now enter the value for the first input parameter (`airportFrom`) and the calculation view will function correctly.
