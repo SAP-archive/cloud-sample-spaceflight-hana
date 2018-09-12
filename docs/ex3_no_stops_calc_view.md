@@ -41,7 +41,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Data Mapping](./img/Ex3_Data_Mapping_Before.png)
 
-1. Now, every column in the `TECHED_FLIGHT_TRIP_EARTHROUTES` table has been selected to supply data to the calculation view
+1. Now, every column in the `TECHED_FLIGHT_TRIP_EARTHROUTES` table has been selected to supply data to the projection
 
     ![Data Mapping](./img/Ex3_Data_Mapping_After.png)
 
@@ -85,7 +85,7 @@ In order to start this exercise, you must first have compiled and deployed your 
     
     ![Validate Syntax](./img/Ex3_Valid_Syntax.png)
 
-1.  Connect our new `projection_1` to the Calculation View's Project
+1.  Connect our new `projection_1` to the Calculation View's projection.  This is done by dragging the "Connect" icon of `Projection_1` up to the main projection
 
     ![Add Projection 1](./img/Ex3_Add_Projection1.png)
 
@@ -93,9 +93,11 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Add Projection 2](./img/Ex3_Add_Projection2.png)
 
-1. Now that we have created a projection with its own input parameters and filter, this projection acts as our data source rather than the raw data from the underlying database table.
-
-    Select the "Mapping" tab at the top of the projection editor.  We can now see that our new `Projection_1` is listed as a data source.  Drag the entire projection onto the Output Columns area.
+1.  Click on the main Projection and select the "Mapping" tab at the top of the detail pane.
+    
+    Notice that `Projection_1` is now the data source rather than the underlying database table. This means that we are now looking at only those fields that have been "projected" from the underlying database table through whatever rules and conditions exist in `Projection_1`.  In this case, we are looking at all the fields from the table, but in general, a projection is the place where you customised how the data in a table is to be through the calculation view.
+    
+    Drag all of `Projection_1` onto the Output Columns area.
     
     ![Add Projection Mapping - Before](./img/Ex3_Add_Projection_Mapping_Before.png)
 
@@ -103,7 +105,9 @@ In order to start this exercise, you must first have compiled and deployed your 
     
     ![Add Projection Mapping - After](./img/Ex3_Add_Projection_Mapping_After.png)
 
-1. The last step in defining the calculation view is to create a "Calculated Column".  Here, we will create a column to appear in the output table whose contents is constructed dynamically.  In this case, we will create a column that concatenates some string values to describe the route being flown.
+1. The last step in defining the calculation view is to create a "Calculated Column".
+
+    Here, we will create a column to appear in the calculation view whose content has been constructed dynamically.  In this case, we will create a column that concatenates some string values to describe the route being flown.
 
     Select the "Calculated Columns" tab from the detail pane and then press the `+` sign to add a new calculated column.
     
@@ -111,7 +115,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Add Calculated Column 2](./img/Ex3_Calc_Col2.png)
 
-1. Call the calculated column `routeText` and make of type `NVARCHAR` and length `50`
+1. Call the calculated column `routeText` and change it to be of type `NVARCHAR` and have a length of `50`
 
     ![Add Calculated Column 3](./img/Ex3_Calc_Col3.png)
 
@@ -123,11 +127,16 @@ In order to start this exercise, you must first have compiled and deployed your 
    
     ```
     CONCAT(
-      CONCAT("STARTINGAIRPORT_IATA3", '->')
+      CONCAT(
+        "STARTINGAIRPORT_IATA3"
+      , '->'
+      )
     , "DESTINATIONAIRPORT_IATA3"
     )
     ```
 
+    Here we are using nested `CONCAT` functions to construct a text string that starts with the value of the Starting Airport, followed by `->` and then the value of the Destination Airport.
+    
     Now press "Validate Syntax" and you should see that the syntax checker is happy.
 
     ![Validate Syntax](./img/Ex3_Valid_Syntax.png)
@@ -136,7 +145,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Semantics](./img/Ex3_Semantics.png)
     
-    In the detail pane, you can now see all the columns that will make up the final table visible in the calculation view.
+    In the detail pane, you can now see all the columns that will make up the final table visible in the calculation view.  This includes the new calculated column called `routeText`
 
 1. Build the calculation view
 
@@ -146,26 +155,26 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Data Preview](./img/Ex3_Data_Preview1.png)
 
-1. In the `airportFrom` and `airportTo` fields, enter the 3-character location codes of your desired route.  For instance you can search for flights from John F,. Kennedy Airport in New York (`JFK`) to Las Vegas (`LAS`)
+1. In the `airportFrom` and `airportTo` fields, enter the 3-character location codes of your desired route.  For instance you can search for direct flights from John F. Kennedy Airport in New York (`JFK`) to Las Vegas (`LAS`)
 
     ***Important***  
-    These values are case-sensitive!
+    The input parameter values are case-sensitive!
 
     ***Warning***  
-    Due to a bug in the UI here, you need to enter the value in the second input parameter first; that is, enter the value for `airportTo` first, then press enter.  At this point you'll see the value for the first input parameter has now been populated with the value from the second input parameter.   Now enter the value for the first input parameter (`airportFrom`) and the calculation view will function correctly.
+    Due to a bug in the UI here, you need to enter the value in the ***second*** input parameter first; that is, enter the value for `airportTo` first, then press enter.  At this point you'll see the value for the first input parameter has now been populated with the value from the second input parameter.   Now enter the value for the first input parameter (`airportFrom`) and the calculation view will function correctly.
 
     ![Data Preview](./img/Ex3_Data_Preview2.png)
 
-    Once you have entered both input parameter values (and checked that the second value has not overwritten the first value), then press the "Open Content" button circled at the top of the screen shot.
+    Once you have entered both input parameter values (and checked that the second value has not overwritten the first value), press the "Open Content" button circled at the top of the screen shot.
 
-1. You will now see a display of all the carriers that operate between John F. Kennedy airport in New York and Las Vegas (5 carriers in this case)
+1. You will now see a display of all the carriers that operate direct flights between John F. Kennedy airport in New York and Las Vegas (5 carriers in this case)
 
     ![Calculation View Results](./img/Ex3_Calc_View_Results.png)
 
     If for some reason you see no results, then one of the following situations could have occurred:
     
-    1. The bug on the input screen has overwritten the `airportFrom` value with the `airportTo` value; or
-    1. You have entered the 3-character IATA location codes in lowercase instead of uppercase; or
-    1. You have entered two location codes for which there are genuinely no direct flights.  For instance, no carrier flies directly from Madrid in Spain (`MAD`) to Las Vegas (`LAS`)
+    1. The bug described above has overwritten the `airportFrom` value with the `airportTo` value; or
+    1. You have entered one or both of the 3-character IATA location codes in lowercase instead of uppercase; or
+    1. You have entered two location codes between which there are genuinely no direct flights.  For instance, no carrier flies directly from Madrid in Spain (`MAD`) to Las Vegas (`LAS`)
 
 # \</exercise>
