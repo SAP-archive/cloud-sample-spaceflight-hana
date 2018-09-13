@@ -17,8 +17,8 @@ In this session, we perform the following exercises:
 1. [Prerequisite Steps](./docs/ex0_prerequisite_steps.md)
 1. [Create a HANA graph](./docs/ex1_create_hana_graph.md)
 1. [HANA Graph Showing the Shortest Path](./docs/ex2_shortest_path.md)
-1. [Create a calculation view](./docs/ex3_no_stops_calc_view.md) to show direct flights
-1. [Create a calculation view](./docs/ex4_one_stop_calc_view.md) to show routes needing 1 stop
+1. [Create a calculation view](./docs/ex3_no_stops_calc_view.md) showing direct flights
+1. [Create a calculation view](./docs/ex4_one_stop_calc_view.md) showing routes requiring one stop
 
 
 ### For SAP TechEd

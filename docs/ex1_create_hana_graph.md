@@ -40,7 +40,7 @@ Only tables with a single key field may be selected for use in a HANA Graph!
 
     ![](./img/Ex1_Create_File.png)
 
-1. Call the file `route.hdbgraphworkspace` and press Ok
+1. Call the file `routes.hdbgraphworkspace` and press Ok
 
     ![](./img/Ex1_Filename.png)
 
