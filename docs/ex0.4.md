@@ -98,11 +98,13 @@ You have now finished this pre-requisite step.
 
     ```using teched.flight.trip from 'spaceflight-model/db';```
     
-    At this point however, the syntax checker will inform you that this file contains a syntax error.  This is a false error message and you don't have to worry about it!
+    At this point however, the syntax checker will inform you that this file contains a syntax error.
+    
+    This is a false error message and you don't have to worry about it!
     
     ![False syntax error](./img/Ex0_Syntax_Error.png)
     
-    The error comes from the fact that the syntax checker has assumed the reference to `spaceflight-model` refers to some local CDS file in the current project, when in fact, it refers to the name of an NPM dependency that will not exist until ***after*** we have run the CDS Compiler.
+    The error comes from the fact that the syntax checker has assumed the reference to `spaceflight-model` refers to some local CDS file in the current project, when in fact, it refers to the name of the NPM dependency we added into the `package.json` file above.  This name will not exist until ***after*** we have run the CDS Compiler.
 
    
 # \</exercise>
