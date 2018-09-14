@@ -23,7 +23,7 @@ Before starting this exercise, you must first have:
 
     ![Add Data Source](./img/Ex4_Choose_Data_Src.png)
 
-1. Select the details pane by clicking on the "Expand Details" icon ![Icon Detail Pane](./img/Icon_Detail_pane.png) then add two new parameters
+1. Select the details pane by clicking on the "Expand Details" icon ![Icon Detail Pane](./img/Icon_Detail_Pane.png) then add two new parameters
 
     ![Add Graph Parameter 1](./img/Ex4_Add_Graph_Param1.png)
 
