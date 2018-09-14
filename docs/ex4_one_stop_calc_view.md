@@ -2,16 +2,25 @@
 
 ## Before you Start...
 
-In order to start this exercise, you must first have compiled and deployed your Spaceflight data model to HANA.  See pre-requisite exercises [0.4](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/docs/ex0.4.md) and [0.5](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/docs/ex0.5.md) for details.
+Before starting this exercise, you must first have:
+
+1. Compiled and deployed your Spaceflight data model to HANA.  See pre-requisite exercises [0.4](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/docs/ex0.4.md) and [0.5](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/docs/ex0.5.md) for details.
+1. Completed [exercise 1](./ex1_create_hana_graph.md) in which you create a HANA Graph.  We will consume this graph during this exercise.
 
 ## Exercise Steps
 
 1. Create a new Calculation View
 
-    ![New Calculation View](./img/Ex3_New_Calc_View.png)
+    ![New Calculation View 1](./img/Ex3_New_Calc_View.png)
     
     Call this new Calculation View `route1stop` and make sure that the Data Category is `DEFAULT`.
     
+1. Add a new Graph
+
+    ![Add Graph](./img/Ex4_Add_Graph.png)
+
+1. Add the graph we created in [exercise 1](./ex1_create_hana_graph.md) as the data source
+
     ![Add Data Source](./img/Ex4_Choose_Data_Src.png)
 
 1. Select the details pane by clicking on the "Expand Details" icon ![Icon Detail Pane](./img/Icon_Detail_pane.png) then add two new parameters
