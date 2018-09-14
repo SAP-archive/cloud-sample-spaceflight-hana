@@ -53,8 +53,8 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     | Name | Is Mandatory | Data Type | Length |
     |---|:-:|---|:-:|
-    | `airportFrom` | ![Tick](./img/tick.png) | `NVARCHAR` | 3
-    | `airportTo` | ![Tick](./img/tick.png) | `NVARCHAR` | 3
+    | `airportFrom` | ![Tick](./img/Icon_Tick.png) | `NVARCHAR` | 3
+    | `airportTo` | ![Tick](./img/Icon_Tick.png) | `NVARCHAR` | 3
     
 
     1. From the Project screen, select the "Parameters" tab, then click on the plus icon and select "Input Parameter"
