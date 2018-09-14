@@ -33,7 +33,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Calculation View](./img/Ex3_Calc_View.png)
 
-    We now need to open `Projection_1`'s detail pane.  To do this, select `Projection_1` and either click on the "Expand Detail Pane" icon ![Expand Detail Pane](./img/Ex3_Expand_Detail_Pane.png),  or grab the handle on the right side of the screen and drag the detail pane out towards the left.
+    We now need to open `Projection_1`'s detail pane.  To do this, select `Projection_1` and either click on the "Expand Detail Pane" icon ![Expand Detail Pane](./img/Icon_Detail_Pane.png),  or grab the handle on the right side of the screen and drag the detail pane out towards the left.
     
     ![Detail Pane](./img/Ex3_Detail_Pane.png)
 
@@ -167,8 +167,8 @@ In order to start this exercise, you must first have compiled and deployed your 
     ***Important***  
     These input parameter values are case-sensitive!
 
-    ***Warning***  
-    Due to a bug in the UI here, you need to enter the value in the ***second*** input parameter first; that is, enter the value for `airportTo` first, then press enter.  At this point you'll see the value for the first input parameter has now been populated with the value from the second input parameter.   Now enter the value for the first input parameter (`airportFrom`) and the calculation view will function correctly.
+    > ***Warning only for Firefox Users***  
+    > Due to a Firefox specific bug, you need to enter the value in the ***second*** input parameter first; that is, enter the value for `airportTo` first, then press enter.  At this point you'll see the value for the first input parameter has now been populated with the value from the second input parameter.   Now enter the value for the first input parameter (`airportFrom`) and the calculation view will function correctly.
 
     ![Data Preview](./img/Ex3_Data_Preview2.png)
 
@@ -180,7 +180,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     If for some reason you see no results, then one of the following situations could have occurred:
     
-    1. The bug described above has overwritten the `airportFrom` value with the `airportTo` value; or
+    1. You're using Firefox and the bug described above has overwritten the `airportFrom` value with the `airportTo` value; or
     1. You have entered one or both of the 3-character IATA location codes in lowercase instead of uppercase; or
     1. You have entered two location codes between which there are genuinely no direct flights.  For instance, no carrier flies directly from Madrid in Spain (`MAD`) to Las Vegas (`LAS`)
 
