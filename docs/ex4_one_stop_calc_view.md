@@ -55,15 +55,17 @@ Before starting this exercise, you must first have:
 
     ![Add Vertex 1](./img/Ex4_Add_Vertex1.png)
 
-    After you've added three vertices, your editor will now look like this:
+    Each vertex you add will be automatically named `V1`, `V2` or `V3` etc.  You will need to rename these vertices by clicking on the name and entering the new value.
+    
+    After you've added and renamed three vertices, your editor will now look like this:
 
     ![Add Vertex 2](./img/Ex4_Add_Vertex2.png)
 
 
-1. The `Start` and `Destination` vertices must now have a table field assigned to them.  For each vertex, assign the following attributes:
+1. The `Start` and `Destination` vertices must now have input parameters assigned to the following table fields:
 
     | Vertex Name | Attribute | Value |
-    |---|:-:|---|:-:|
+    |---|:-:|---|
     | `Start` | `IATA3` | Input Parameter `airportFrom` 
     | `Destination` | `IATA3` | Input Parameter `airportTo` 
 
@@ -75,13 +77,15 @@ Before starting this exercise, you must first have:
 
     ![Add Vertex Attribute 2](./img/Ex4_Add_Vertex_Attr2.png)
 
-1. Now created the graph edges by dragging the arrow from the `Start` vertex to the `ChangeAt` vertex.
+1. Now create the graph edges by dragging the arrow from the `Start` vertex to the `ChangeAt` vertex.
 
     ![Add Vertex 3](./img/Ex4_Add_Vertex3.png)
     
     Repeat this process and connect the `ChangeAt` vertex to the `Destination` vertex
     
-    These edges will automatically be named `E1`, `E2` etc.; however, for the sake of clarity, we will call these edges `Leg1` and `Leg2` respectively.  Your graph should now look like this:
+    These edges will automatically be named `E1`, `E2` etc.; however, for the sake of clarity, we will rename these edges `Leg1` and `Leg2` respectively.
+    
+    Your graph should now look like this:
 
     ![Add Edges](./img/Ex4_Add_Edges.png)
     
@@ -89,19 +93,19 @@ Before starting this exercise, you must first have:
 
     ![Graph Mapping 1](./img/Ex4_Graph_Mapping1.png)
     
-    For each field in the Data Source column listed on the left, drag these fields (one at a time) onto the Output Column area on the right
+    For each Data Source field shown in the table below, drag that field onto the Output Column area on the right
 
-    | Data Source | Field Name | Output Column |
+    | Data Source Type | Data Source Name| Field Name |
     |---|---|---|
-    | Vertex `Start` | `IATA3` | `IATA3`
-    | Vertex `ChangeAt` | `IATA3` | `IATA3_1`
-    | Vertex `Destination` | `IATA3` | `IATA3_2`
-    | Edge `Leg1` | `ID` | `ID`
-    | Edge `Leg1` | `DISTANCE` | `DISTANCE`
-    | Edge `Leg1` | `AIRLINE_IATA2` | `AIRLINE_IATA2`
-    | Edge `Leg2` | `ID` | `ID_2`
-    | Edge `Leg2` | `DISTANCE` | `DISTANCE_2`
-    | Edge `Leg2` | `AIRLINE_IATA2` | `AIRLINE_IATA2_2`
+    | Vertex | `Start` | `IATA3`
+    | Vertex | `ChangeAt` | `IATA3`
+    | Vertex | `Destination` | `IATA3`
+    | Edge | `Leg1` | `ID`
+    | Edge | `Leg1` | `DISTANCE`
+    | Edge | `Leg1` | `AIRLINE_IATA2`
+    | Edge | `Leg2` | `ID`
+    | Edge | `Leg2` | `DISTANCE`
+    | Edge | `Leg2` | `AIRLINE_IATA2`
 
     After this mapping is complete, if you collapse the individual data sources on the left of the Mapping screen, your mapping will look like this:
     
@@ -124,11 +128,13 @@ Before starting this exercise, you must first have:
     ![Projection Mapping 2](./img/Ex4_Projection_Mapping2.png)
 
 
-1. In the projection, we now need to create three calculated columns.  The purpose of these columns is to take the values from individual fields and merge them together in some way to form the overall value we need.  For instance, it would be helpful to have some fields that display things like:
+1. In `Projection_1`, we now need to create three calculated columns.
+
+    The purpose of these columns is to take the values from individual fields and merge them together in some way to form a more user-friendly value.  For instance, it would be helpful to have fields that display things like:
     
-    1. A text string describing all the legs of the journey  
-    1. A text string showing which airline companies will be used on this journey  
-    1. The total journey distance  
+    1. A text string describing all the legs of the journey
+    1. A text string showing which airline companies will be used on this journey
+    1. The total journey distance
     
     
 1. Add a new calculated column
@@ -143,7 +149,9 @@ Before starting this exercise, you must first have:
     
     ![Calculated Column 3](./img/Ex4_Calc_Col3.png)
     
-    The purpose of this calculated column is to concatenate the airport location codes together.  For example, we know that there is no direct flight from Madrid, Spain (`MAD`) to Las Vegas (`LAS`); therefore, we will fly via Chicago's O'Hare International Airport (`ORD`).  We want this route to be displayed as:
+    The purpose of this calculated column is to concatenate the airport location codes together.
+    
+    For example, we know that there is no direct flight from Madrid, Spain (`MAD`) to Las Vegas (`LAS`); therefore, we would need to change at somewhere like Chicago's O'Hare International Airport (`ORD`).  Therefore, we want such a route to be displayed as:
     
     `MAD -> ORD -> LAS`
     
@@ -232,7 +240,7 @@ Before starting this exercise, you must first have:
 
     ![Data preview 1](./img/Ex4_Data_Preview1.png)
 
-1. Enter two airports for which we known no direct flight exists.  For instance from Madrid (`MAD`) to Las Vegas (`LAS`), then press "Open Content" in the toolbar above.
+1. Enter two airports between which we know no direct flight exists.  For instance from Madrid (`MAD`) to Las Vegas (`LAS`), then press "Open Content" in the toolbar above.
 
     ![Data preview 2](./img/Ex4_Data_Preview2.png)
 
