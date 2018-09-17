@@ -4,7 +4,7 @@
 <a name="description"></a>
 ## Description
 
-The TechED 2018 session CNA262 describes how to create a HANA Graph and Calculation views using the information supplied from the base data model found in the SAP Git repository [cloud-sample-spaceflight](https://github.com/SAP/cloud-sample-spaceflight).
+The TechEd 2018 session CNA262 describes how to create a HANA Graph and Calculation views using the information supplied from the base data model found in the SAP Git repository [cloud-sample-spaceflight](https://github.com/SAP/cloud-sample-spaceflight).
 
 
 
