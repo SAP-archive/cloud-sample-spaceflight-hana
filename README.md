@@ -4,7 +4,7 @@
 <a name="description"></a>
 ## Description
 
-The TechED 2018 session CNA262 describes how to create a HANA Graph and Calculations views using the information supplied from the base data model found in the SAP Git repository [cloud-sample-spaceflight](https://github.com/SAP/cloud-sample-spaceflight).
+The TechED 2018 session CNA262 describes how to create a HANA Graph and Calculation views using the information supplied from the base data model found in the SAP Git repository [cloud-sample-spaceflight](https://github.com/SAP/cloud-sample-spaceflight).
 
 
 
@@ -18,7 +18,7 @@ Please read the [flight model](https://github.com/SAP/cloud-sample-spaceflight/b
 
 ### For SAP TechEd 2018
 
-For attendees of SAP TechEd 2018, the session instructors will provide you with access to the full environment in which you perform the exercises listed below.
+For attendees of SAP TechEd 2018, the session instructors will provide you with access to the full environment in which to perform the exercises listed below.
 
 ### For General Use
 
@@ -30,7 +30,7 @@ Once SAP TechEd 2018 has finished, the exercises shown below will be available f
 
 ### How to Consume a CDS Data Model from a Different Git Repository
 
-The details of how a CDS data model held in one Git repository can be referenced from another repository is documented [here](./docs/consumeRemoteDataModel.md).
+The details of how a CDS data model held in one Git repository can be referenced from another repository are documented [here](./docs/consumeRemoteDataModel.md).
 
 
 
