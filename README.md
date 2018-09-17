@@ -22,10 +22,14 @@ For attendees of SAP TechEd 2018, the session instructors will provide you with 
 
 ### For General Use
 
-Once SAP TechEd 2018 has finished, the exercises shown below will be available for use to anyone with an SAP Cloud Platform (Cloud Foundry) account containing at least the services listed below:
+Once SAP TechEd 2018 has finished, the exercises shown below will be available for use to anyone with the following accounts:
 
-* SAP HANA Database (Standard or Enterprise)
-* SAP HANA Schemas & HDI Containers (hdi-shared)
+1. An SAP Cloud Platform (Cloud Foundry) account containing at least the services:
+
+    * SAP HANA Database (Standard or Enterprise)
+    * SAP HANA Schemas & HDI Containers (hdi-shared)
+
+1. An SAP Cloud Platform (Neo) account that provides access to at least SAP Web IDE
 
 
 ### How to Consume a CDS Data Model from a Different Git Repository
