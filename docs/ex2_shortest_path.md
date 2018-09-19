@@ -52,7 +52,7 @@ So lets use the HANA Graph to calculate firstly ***a*** route, and secondly, the
     Here, we can cess that our journey will take us from:
     
     * `BLR` (Bangalore) to
-    * `DEL` (Dehli) to
+    * `DEL` (Delhi) to
     * `ALA` (Almaty), then finally to
     * `AOX` (Yubileyniy)
 
