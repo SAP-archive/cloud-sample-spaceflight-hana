@@ -1,4 +1,4 @@
-# Exercise 0.2: Log on to Web IDE
+# Prerequisite 2: Log on to Web IDE
 
 1. Use the URL supplied by your instructor to start Web IDE
 1. Log on to Web IDE using the credentials supplied by your instructor
@@ -9,4 +9,4 @@
 
     ![Web IDE welcome screen](./img/Ex0_Web_IDE_Welcome.png)
    
-# \</exercise>
+# \</prerequisite>

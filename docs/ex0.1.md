@@ -1,4 +1,4 @@
-# Exercise 0.1: Log On To Your SAP Cloud Platform Account
+# Prerequisite 1: Log On To Your SAP Cloud Platform Account
 
 The instructor will provide you with the following details in order to complete all the exercises:
 
@@ -7,8 +7,7 @@ The instructor will provide you with the following details in order to complete 
 
 ### IMPORTANT
 
-If you already have a trial account on the SAP Cloud Platform, then please ***do not*** use it!  
-You will run into memory allocation problems!
+If you already have a trial account on the SAP Cloud Platform, then please ***do not*** use it as you will probably run into memory allocation problems!
 
    
-# \</exercise>
+# \</prerequisite>

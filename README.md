@@ -42,7 +42,7 @@ The details of how a CDS data model held in one Git repository can be referenced
 <a name="exercises"></a>
 ## Exercises
 
-Before starting any of the exercises, you must first complete [these pre-requisite steps](./docs/ex0_prerequisite_steps.md).
+Before starting any of the exercises, you must first complete [these prerequisite steps](./docs/ex0_prerequisite_steps.md).
 
 Once you have completed the pre-requisite steps, you are then ready to perform the following exercises:
 

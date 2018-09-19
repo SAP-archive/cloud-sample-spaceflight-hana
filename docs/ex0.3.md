@@ -1,8 +1,8 @@
-# Exercise 0.3: Configure Web IDE
+# Prerequisite 3: Configure Web IDE
 
 Once you have logged on to Web IDE, select the preferences icon ![Preferences](./img/Icon_Preferences.png)
 
-## 0.3.1: Configure Web IDE's Connection to Cloud Foundry
+## 3.1: Configure Web IDE's Connection to Cloud Foundry
 
 1. From the "Workspace Preferences", select "Cloud Foundry"
 1. Select the name of your Cloud Foundry API endpoint from the drop-down list
@@ -13,7 +13,7 @@ Once you have logged on to Web IDE, select the preferences icon ![Preferences](.
     Please ***do not*** press the button saying "Reinstall Builder"!  
     Firstly, this action should not be necessary, and secondly, with multiple users sharing the same Cloud Foundry Space, this action need only be performed once per ***Cloud Foundry Space***, not once per ***user***.
 
-## 0.3.2: Configure Web IDE Features
+## 3.2: Configure Web IDE Features
 
 1. From the "Workspace Preferences", select "Features"
 1. Ensure that all of the following features have been switched on.  
@@ -27,4 +27,4 @@ Once you have logged on to Web IDE, select the preferences icon ![Preferences](.
 
     You must then restart Web IDE in order to activate these new features.
    
-# \</exercise>
+# \</prerequisite>

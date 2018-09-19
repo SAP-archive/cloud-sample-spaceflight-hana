@@ -1,4 +1,4 @@
-# Exercise 0: Prerequisite Steps
+# Prerequisite Steps
 
 There are 5 pre-requisite steps that need to be completed.  Please ensure that you have successfully completed all of these steps ***before*** proceeding with exercise 1.
 
@@ -23,4 +23,4 @@ After completing these steps you will have achieved the following:
         * Using the name of your Cloud Foundry Space configured in your Web IDE preferences, it sends the `.hdbcds` table information to the database builder tool installed in your CF Space.  The database Builder tool then generates the database tables in your HDI container
         * Using the configuration found in the JSON file `db/src/csv/Data.hdbtabledata`, the database builder then populates the database tables from the various `.csv` files in the `db/src/csv` folder
    
-# \</exercise>
+# \</prerequisite steps>

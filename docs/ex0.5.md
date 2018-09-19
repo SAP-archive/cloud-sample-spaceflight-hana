@@ -1,4 +1,4 @@
-# Exercise 0.5: Compile and Deploy the Data Model to HANA
+# Prerequisite 5: Compile and Deploy the Data Model to HANA
 
 The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.
 
@@ -10,7 +10,7 @@ We are ***not*** importing a working HANA database.  We are only importing the C
 
 > Currently, the CDS compiler can only create files suitable for the HANA database.  Compiling `.cds` files for other target databases is planned for the future.
 
-## 0.5.1 Compile the Data Model
+## 5.1 Compile the Data Model
 
 1. Right click on the `cloud-sample-spaceflight-hana` project name and select Build -> Build CDS.
 
@@ -75,7 +75,7 @@ We are ***not*** importing a working HANA database.  We are only importing the C
 1. As a result of running the CDS Compiler, you will now find that your `db/src/gen` folder has been populated.  These are the files that now need to be deployed to your HANA HDI Container.
 
 
-## 0.5.2 Deploy the Compiled Data Model to HANA
+## 5.2 Deploy the Compiled Data Model to HANA
 
 1. Before starting the deploy process, it is worth first clearing the console output.  To do this, Select View -> "Clear Console" from the Web IDE menu running across the top of the screen
 
@@ -127,4 +127,4 @@ We are ***not*** importing a working HANA database.  We are only importing the C
     Although not essential, it is useful to make a note of your HDI Container name as you might need to know this when you later connect using the Database Explorer tool in Web IDE.
     
    
-# \</exercise>
+# \</prerequisite>
