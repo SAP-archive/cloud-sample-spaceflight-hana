@@ -37,4 +37,24 @@ So lets use the HANA Graph to calculate firstly ***a*** route, and secondly, the
 
     ![Shortest Path](./img/Ex2_Via_Chicago.png)
 
+1. In keeping with our theme of Space Travel, let's say we live in Bangalore, India and we want to fly to the Moon.  Our journey is broken up into two major sections: the first part where we travel from our home city to the spaceport, and the second part where we travel from the spaceport to the destination planet.
+
+    In the case of Bangalore, the nearest spaceport is the Russian Spaceflight Centre in Baikonur, Kazahkstan.  So let's discover the shortest route from Bangalore to Baikonur.
+
+    In this case, you just have to know that the airport at Baikonur is not called "Baikonur", but "Yubileyniy" and it has an IATA location code of `AOX`... ![Wide Eyes](./img/Icon_Wide_Eyes.png)
+
+    ![BLT to AOX 1](./img/Ex2_BLR_to_AOX1.png)
+    
+    Change the start and end vertices to `BLR` and `AOX` respectively and press Apply again.
+    
+    ![BLT to AOX 2](./img/Ex2_BLR_to_AOX2.png)
+    
+    Here, we can cess that our journey will take us from:
+    
+    * `BLR` (Bangalore) to
+    * `DEL` (Dehli) to
+    * `ALA` (Almaty), then finally to
+    * `AOX` (Yubileyniy)
+
+
 # \</exercise>
