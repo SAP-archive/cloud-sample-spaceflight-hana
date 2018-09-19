@@ -158,14 +158,14 @@
     </calculatedViewAttributes>
     <restrictedViewAttributes/>
     <input node="Graph_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="IATA3" source="IATA3"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="IATA3_1" source="IATA3_1"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="IATA3_2" source="IATA3_2"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="DISTANCE" source="DISTANCE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AIRLINE_IATA2" source="AIRLINE_IATA2"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_1" source="ID_1"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="DISTANCE_1" source="DISTANCE_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IATA3"           source="IATA3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IATA3_1"         source="IATA3_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IATA3_2"         source="IATA3_2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID"              source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DISTANCE"        source="DISTANCE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AIRLINE_IATA2"   source="AIRLINE_IATA2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_1"            source="ID_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DISTANCE_1"      source="DISTANCE_1"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="AIRLINE_IATA2_1" source="AIRLINE_IATA2_1"/>
     </input>
   </calculationView>
@@ -217,9 +217,9 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="ROUTES" modelObjectNameSpace="Graph_1" modelObjectType="VertexVariable">
-      <upperLeftCorner name="Start" x="12" y="12"/>
-      <upperLeftCorner name="Destination" x="238" y="12"/>
-      <upperLeftCorner name="ChangeAt" x="122" y="12"/>
+      <upperLeftCorner name="Start"       x="12"  y="12"/>
+      <upperLeftCorner name="ChangeAt"    x="137" y="12"/>
+      <upperLeftCorner name="Destination" x="262" y="12"/>
     </shape>
     <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="100" y="218"/>
