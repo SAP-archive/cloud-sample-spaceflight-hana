@@ -42,13 +42,14 @@ The details of how a CDS data model held in one Git repository can be referenced
 <a name="exercises"></a>
 ## Exercises
 
-In this session, we perform the following exercises:
+Before starting any of the exercises, you must first complete [these pre-requisite steps](./docs/ex0_prerequisite_steps.md).
 
-1. [Prerequisite Steps](./docs/ex0_prerequisite_steps.md)
+Once you have completed the pre-requisite steps, you are then ready to perform the following exercises:
+
 1. [Create a HANA graph](./docs/ex1_create_hana_graph.md)
-1. [HANA Graph Showing the Shortest Path](./docs/ex2_shortest_path.md)
-1. [Create a calculation view](./docs/ex3_no_stops_calc_view.md) showing direct flights
-1. [Create a calculation view](./docs/ex4_one_stop_calc_view.md) showing routes requiring one stop
+1. [Adapt the HANA Graph to show the shortest path between two airports](./docs/ex2_shortest_path.md)
+1. [Create a calculation view showing direct flights](./docs/ex3_no_stops_calc_view.md)
+1. [Create a calculation view showing routes requiring one stop](./docs/ex4_one_stop_calc_view.md)
 
 
 
