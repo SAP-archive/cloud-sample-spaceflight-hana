@@ -16,7 +16,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
 1. Now we need to add a projection.  If it is not already expanded, expand the sidebar menu on the calculation view editor by clicking the `>>` icon.
 
-    Select the "Projection" tool then click somewhere underneath the "Projection" icon insert a new projection
+    Select the "Projection" tool then click somewhere underneath the "Projection" icon to insert a new projection
 
     ![Calculation View Name](./img/Ex3_New_Projection.png)
 
@@ -56,7 +56,7 @@ In order to start this exercise, you must first have compiled and deployed your 
     | `airportFrom` | ![Tick](./img/Icon_Tick.png) | `NVARCHAR` | 3
     | `airportTo` | ![Tick](./img/Icon_Tick.png) | `NVARCHAR` | 3
     
-    For each of the input parameters shown in the table above, apply this listed properties by following these steps:
+    For each of the input parameters shown in the table above, apply the listed properties by following these steps:
 
     1. From the Projection screen, select the "Parameters" tab, then click on the plus icon and select "Input Parameter"
     ![New Input Parameter Step 1](./img/Ex3_Add_Input_Param1.png)
@@ -95,7 +95,7 @@ In order to start this exercise, you must first have compiled and deployed your 
     
     ![Validate Syntax](./img/Ex3_Valid_Syntax.png)
 
-1.  Connect our new `projection_1` to the Calculation View's projection.  This is done by dragging the "Connect" icon of `Projection_1` up to the main projection
+1.  Connect our new `Projection_1` to the Calculation View's projection.  This is done by dragging the "Connect" icon of `Projection_1` up to the main projection
 
     ![Add Projection 1](./img/Ex3_Add_Projection1.png)
 
@@ -147,7 +147,7 @@ In order to start this exercise, you must first have compiled and deployed your 
     )
     ```
 
-    Due to the fact that the SQL `CONCAT` function can only take two parameters, we must use nested `CONCAT` functions. The value of the Starting Airport is concatenated to "`->`", which in turn is concatenated to the value of the Destination Airport.
+    Due to the fact that the SQL function `CONCAT` can only take two parameters, we must use nested `CONCAT` functions. The value of the Starting Airport is concatenated to "`->`", which in turn is concatenated to the value of the Destination Airport.
     
     Now press "Validate Syntax" and you should see that the syntax checker is happy.
 
