@@ -16,7 +16,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
 1. Now we need to add a projection.  If it is not already expanded, expand the sidebar menu on the calculation view editor by clicking the `>>` icon.
 
-    Select the "Projection" tool then drop a new projection as shown in the screen shot below
+    Select the "Projection" tool then click somewhere underneath the "Projection" icon insert a new projection
 
     ![Calculation View Name](./img/Ex3_New_Projection.png)
 
@@ -37,7 +37,7 @@ In order to start this exercise, you must first have compiled and deployed your 
     
     ![Detail Pane](./img/Ex3_Detail_Pane.png)
 
-1. We must now decide which columns in the underlying database table will be "projected" though to the calculation view.  In this case, we will take the simple option and select everything! :-)
+1. We must now decide which columns in the underlying database table will be "projected" though to the calculation view.  In this case, we will take the simple option and select everything! ![Icon Smiley](./img/Icon_Smiley.png)
 
     Click on the table name and drag the entire table to the "Output Columns" area on the right.
 
@@ -47,20 +47,21 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     ![Data Mapping](./img/Ex3_Data_Mapping_After.png)
 
-1. If we stopped at this point, there would be little point in having a projection, since all we have done so far is directly expose the entire underlying database table.  So we will now add two input parameters to allow the data to be filtered.  We will call these input parameters `airportFrom` and `airportTo`.
+1. If we stopped at this point, there would be little point in having a projection, since all we have done so far is directly expose the entire underlying database table.
 
-    For each of the input parameters shown in the table below, repeat the following steps.
+    So in order to allow the table data to be filtered, we will now add two input parameters called `airportFrom` and `airportTo`.
 
     | Name | Is Mandatory | Data Type | Length |
     |---|:-:|---|:-:|
     | `airportFrom` | ![Tick](./img/Icon_Tick.png) | `NVARCHAR` | 3
     | `airportTo` | ![Tick](./img/Icon_Tick.png) | `NVARCHAR` | 3
     
+    For each of the input parameters shown in the table above, apply this listed properties by following these steps:
 
-    1. From the Project screen, select the "Parameters" tab, then click on the plus icon and select "Input Parameter"
+    1. From the Projection screen, select the "Parameters" tab, then click on the plus icon and select "Input Parameter"
     ![New Input Parameter Step 1](./img/Ex3_Add_Input_Param1.png)
 
-    1. The Input Parameter currently has the temporary name of "IP_1" which we can change by clicking on the `>` icon to the right of the screen
+    1. The Input Parameter currently has the generated name of "IP_1" which we can change by clicking on the `>` icon to the right of the screen
     ![New Input Parameter Step 2](./img/Ex3_Add_Input_Param2.png)
 
     1. Enter the name, data type and length properties from the table above, and select the "Is Mandatory" flag
@@ -70,7 +71,9 @@ In order to start this exercise, you must first have compiled and deployed your 
     ![New Input Parameter Step 4](./img/Ex3_Add_Input_Param4.png)
 
 
-1. Now we need to act upon the values received as input parameters.  This is where a filter expression is used.  Select the "Filter Expression" tab from the Projection editor
+1. Now we need to take the values received as input parameters and use them to filter the table data.  This is where a filter expression is used.
+
+    Select the "Filter Expression" tab from the Projection editor
 
    ![Add Filter Step 1](./img/Ex3_Add_Filter1.png)
 
@@ -102,7 +105,9 @@ In order to start this exercise, you must first have compiled and deployed your 
 
 1.  Click on the main Projection and select the "Mapping" tab at the top of the detail pane.
     
-    Notice that `Projection_1` is now the data source rather than the underlying database table. This means that we are now looking at only those fields that have been "projected" from the underlying database table through whatever rules and conditions exist in `Projection_1`.  In this case, we are looking at all the fields from the table, but in general, a projection is the place where you can customise what table data is visible through the calculation view.
+    Notice that `Projection_1` is now the data source rather than the underlying database table. This means that the main projection can only see those fields that have been "projected" through `Projection_1` from the underlying database table.
+    
+    So the purpose of `Projection_1` is to apply various filters and conditions that restrict the rows and columns supplied to the main Projection.  In this case, we are restricting only the rows to those that match the input parameter values: we not restricting the columns.
     
     Drag all of `Projection_1` onto the Output Columns area.
     
@@ -114,7 +119,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
 1. The last step in defining the calculation view is to create a "Calculated Column".
 
-    Here, we will create a column to appear in the calculation view whose content has been constructed dynamically.  In this case, we will create a column that concatenates some string values to describe the route being flown.
+    Here, we will create a column to appear in the calculation view whose content has been constructed dynamically.  In this case, we will create a column that contains a text string constructed from the IATA location codes of the starting and destination airports.
 
     Select the "Calculated Columns" tab from the detail pane and then press the `+` sign to add a new calculated column.
     
@@ -142,7 +147,7 @@ In order to start this exercise, you must first have compiled and deployed your 
     )
     ```
 
-    Here we are using nested `CONCAT` functions to construct a text string that starts with the value of the Starting Airport, followed by `->` and then the value of the Destination Airport.
+    Due to the fact that the SQL `CONCAT` function can only take two parameters, we must use nested `CONCAT` functions. The value of the Starting Airport is concatenated to "`->`", which in turn is concatenated to the value of the Destination Airport.
     
     Now press "Validate Syntax" and you should see that the syntax checker is happy.
 
