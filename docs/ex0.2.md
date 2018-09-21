@@ -10,6 +10,9 @@ However, irrespective of how you create the project, you will still need to buil
 From the menu down the left side of the screen, select the Web IDE development perspective ![Development](./img/Icon_Development.png)
 
 
+
+<a name="2.1">
+
 ## 2.1: Create the Project by Cloning the Git Repository
 
 1. Right-click on the top-level Workspace item and select Git -> Clone Repository
@@ -19,6 +22,10 @@ From the menu down the left side of the screen, select the Web IDE development p
 1. You should now have a project in your Web IDE workspace called `cloud-sample-spaceflight-hana`
 
 You have now finished this pre-requisite step.
+
+
+
+<a name="2.2">
 
 ## 2.2: Create the Project Manually
 
