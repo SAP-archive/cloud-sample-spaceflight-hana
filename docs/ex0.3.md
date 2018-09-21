@@ -3,7 +3,7 @@
 The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.
 
 ***WARNING***  
-The information imported from the remote Git repository does ***not*** will not immediately give us a working HANA database.  Instead, we are importing the various CDS files that define the what the database tables will look like when deployed to HANA.  Therefore, after importing the data model, we must perform two steps:
+The information imported from the remote Git repository does ***not*** immediately give us a working HANA database.  Instead, we are importing the various CDS files that define the what the database tables will look like when deployed to HANA.  Therefore, after importing the data model, we must perform two steps:
 
 1. Compile the data model
 1. Deploy the compiled database definition to an HDI Container.  This step has been configured so that it will additionally populate the database tables
