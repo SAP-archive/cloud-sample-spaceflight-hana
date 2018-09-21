@@ -1,13 +1,40 @@
-# Prerequisite 1: Log On To Your SAP Cloud Platform Account
+# Prerequisite 1: Log on to and Configure Web IDE
 
-The instructor will provide you with the following details in order to complete all the exercises:
+Using the URL supplied by your instructor, start SAP Web IDE
 
-1. The userid and password for the SAP Cloud Platform account
-1. The URL to start the correct instance of Full Stack Web IDE
+## 2.1: Log on to Web IDE
 
-### IMPORTANT
+1. Log on using the credentials supplied by your instructor
 
-If you already have a trial account on the SAP Cloud Platform, then please ***do not*** use it as you will probably run into memory allocation problems!
+    ![Web IDE logon](./img/Ex0_Web_IDE_Logon.png)
 
+1. Once logged on, you will see the Web IDE welcome screen
+
+    ![Web IDE welcome screen](./img/Ex0_Web_IDE_Welcome.png)
+   
+## 2.2: Configure Web IDE's Connection to Cloud Foundry
+
+1. From the "Workspace Preferences", select "Cloud Foundry"
+1. Select the name of your Cloud Foundry API endpoint from the drop-down list
+1. The values for Organisation and Space names will be selected for you since your user id is allocated only to one space within one organisation
+1. Press the "Save" button at the bottom of the screen
+
+    ***IMPORTANT***  
+    Please ***do not*** press the button saying "Reinstall Builder"!  
+    Firstly, this action should not be necessary, and secondly, with multiple users sharing the same Cloud Foundry Space, this action need only be performed once per ***Cloud Foundry Space***, not once per ***user***.
+
+## 2.3: Configure Web IDE Features
+
+1. From the "Workspace Preferences", select "Features"
+1. Ensure that all of the following features have been switched on.  
+
+    ![SAP Cloud Platform Business Application Development Tools](./img/Ex0_Feature_CP_Bus_App_Dev.png)  
+    ![SAP HANA Database Development Tools](./img/Ex0_Feature_HANA_DB_Dev.png)  
+    ![SAP HANA Database Explorer](./img/Ex0_Feature_HANA_DB_Exp.png)  
+    ![Tools for NodeJS Development](./img/Ex0_Feature_NodeJS_Dev.png)  
+
+    After switching all these features on, you ***must*** press the "Save" button located at the bottom of the screen.  
+
+    You must then restart Web IDE in order to activate these new features.
    
 # \</prerequisite>

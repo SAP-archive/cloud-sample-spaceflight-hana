@@ -1,19 +1,18 @@
 # Prerequisite Steps
 
-There are 5 pre-requisite steps that need to be completed.  Please ensure that you have successfully completed all of these steps ***before*** proceeding with exercise 1.
+The following prerequisite steps all relate to configuring SAP Web IDE in readiness for performing the first exercise.
 
-1. [Log On To Your SAP Cloud Platform Account](./ex0.1.md)  
-1. [Log On To Web IDE](./ex0.2.md)
-1. [Configure Web IDE](./ex0.3.md)
-1. [Create a New Project](./ex0.4.md)
-1. [Compile and Deploy the Data Model to HANA](./ex0.5.md)
+Please ensure that you have successfully completed all of the following steps ***before*** proceeding with exercise 1.
+
+1. [Log on to and Configure Web IDE](./ex0.1.md)
+1. [Create a New Project](./ex0.2.md)
+1. [Compile and Deploy the Data Model to HANA](./ex0.3.md)
 
     
 ## Summary
 
 After completing these steps you will have achieved the following:
 
-1. You have logged on to your SAP Cloud Platform account 
 1. You have logged on to and configured your Web IDE editor
 1. Within Web IDE, you have created a new project (either manually or by cloning a Git repository)
 1. You have used the Core Data Services (CDS) compiler in two stages to achieve three things:
