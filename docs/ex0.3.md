@@ -124,25 +124,19 @@ Although it is not essential, it is useful to make a note of the HDI Container n
 Scroll to the very top of the console and you will see output similar to the following:
 
 ```plain_text
-14:00:09 (Builder) Build of "/cloud-samples-spaceflight-hana/db" started.
-14:00:34 (DIBuild) Build of "/cloud-samples-spaceflight-hana/db" in progress.
-14:00:35 (DIBuild) Service provisioning for module: '/db'
-Created the 'cloud-samples-spaceflight-hana-spadFWrNEYzOc6XjntR' instance of the 'hana' service type for the 'spacetravel-hdi' resource.
+14:29:44 (DIBuild) Build of "/cloud-sample-spaceflight-hana/db" in progress.
+14:29:44 (DIBuild) Service provisioning for module: '/db'
+Created the 'cloud-sample-spaceflight-hana-spacIqaQmbX9T166/dki' instance of the 'hana' service type for the 'spacetravel-hdi' resource.
 [INFO] Injecting source code into builder...
 [INFO] Source code injection finished
 [INFO] ------------------------------------------------------------------------
 Your module contains a package.json file, it will be used for the build.
-14:00:38 (DIBuild)
-> deploy@ postinstall /home/vcap/app/.java-buildpack/tomcat/temp/builder/hdi-builder/builds/build-3277892664882001306/cloud-samples-spaceflight-hana/db
+14:29:46 (DIBuild)
+> deploy@ postinstall /home/vcap/app/.java-buildpack/tomcat/temp/builder/hdi-builder/builds/build-2330334266323447403/cloud-sample-spaceflight-hana/db
 > node conditionalBuild.js
-added 50 packages from 27 contributors in 1.306s
-14:00:41 (DIBuild) 
-> spaceflight-model@0.1.0 build /home/vcap/app/.java-buildpack/tomcat/temp/builder/hdi-builder/builds/build-3277892664882001306/cloud-samples-spaceflight-hana
-> cds build --clean
-This is CDS 2.7.0, Compiler 1.0.32, Home: node_modules/@sap/cds
 ```
 
-Look at the fourth line that starts with `Created the 'cloud-samples-spaceflight-hana-xxxxxxxx' instance` (where `xxxxxxxx` is some randomly generated identifier).
+Look at the third line that starts with `Created the 'cloud-samples-spaceflight-hana-xxxxxxxx' instance` (where `xxxxxxxx` is some randomly generated identifier).
 
 This is the name of your HDI Container within the shared HANA database and into which your database tables have been deployed.
 
