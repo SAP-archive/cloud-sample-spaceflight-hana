@@ -6,7 +6,7 @@ Please ensure that you have successfully completed all of the following steps **
 
 1. [Log on to and Configure Web IDE](./ex0.1.md)
 1. [Create a New Project](./ex0.2.md)
-1. [Compile and Deploy the Data Model to HANA](./ex0.3.md)
+1. [Compile and Deploy the CDS Data Model to HANA](./ex0.3.md)
 
     
 ## Summary
