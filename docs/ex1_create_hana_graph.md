@@ -7,7 +7,9 @@ Before we can build a HANA Graph, we need to understand what graphs are in gener
 A "graph" is a mathematical term for particular type of data visualisation, and is built from two types of information:
     
 1. A set of points
-1. A set of connections between these points.  These connections usually have some property that describes the strength (or "weight") of the connection
+1. A set of connections between these points.  
+    It is perfectly possible for multiple connections to exist between the same pair of points.  
+    These connections usually have some property that describes the strength (or "weight") of the connection
 
 The technical word for a point is a *"vertex"*, and the technical word for the connection between two points is an *"edge"*.  Therefore, when we build a HANA graph, we must answer the following questions:
 
@@ -19,12 +21,12 @@ The technical word for a point is a *"vertex"*, and the technical word for the c
 
 In our case, our graph is going to visualise all the direct flights that can be taken between airports. Therefore, we can answer the first two questions:
 
-> The edge information will be obtained from the database table generated from the `Earthroutes` entity  
-> The vertex information will be obtained from the database table generated from the `Airports` entity
+* The edge information will be obtained from the database table generated from the `Earthroutes` entity  
+* The vertex information will be obtained from the database table generated from the `Airports` entity
 
-Notice here that the data sources are not the `Airports` or `Earthroutes` entities themselves, but rather the database tables that are generated from these entities.  
+Notice here that the data sources are not the `Airports` or `Earthroutes` entities themselves, but rather the database tables that are generated as a result of compiling and deploying these entities to HANA.
 
-Do you remember from section 0.5.1 of the [prerequisites steps](./ex0_prerequisite_steps.md) you were asked to make a note of the table names `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`?  In order to define the HANA graph, we need to know these two table names.
+Do you remember from [prerequisite step 3.1](./ex0.3.md#3.1) you were asked to make a note of the table names `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`?  In order to define the HANA graph, we need to know these two table names.
 
 This is an important distinction because we need to understand how the CDS compiler transforms an entity name in a `.cds` file into a database table name (defined in a `.hdbcds` file).
 
