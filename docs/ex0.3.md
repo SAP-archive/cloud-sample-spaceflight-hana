@@ -18,10 +18,12 @@ The information imported from the remote Git repository does ***not*** will not 
 
 ## 3.1 Compile the Data Model
 
-First, we must compile the database agnostic `.cds` files into a form suitable for deployment to HANA. For more information on the behaviour of the CDS compiler, please read this [brief overview](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/cdsCompile.md)
+If you have not changed the default configuration for SAP Web IDE, then this step will already have been performed when you saved your changes to the `db/data-model/.cds` file.
+
+The purpose of the CDS compiler is firstly to transform the database agnostic `.cds` files into a form suitable for deployment to HANA. For more information on the behaviour of the CDS compiler, please read this [brief overview](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/cdsCompile.md)
 
 
-1. Right click on the `cloud-sample-spaceflight-hana` project name and select Build -> Build CDS.
+1. If you wish to recompile all the CDS files in your project, right-click on the `cloud-sample-spaceflight-hana` project name and select Build -> Build CDS.
     
 1. In the bottom right-hand corner of the Web IDE screen is a vertical menu.  
 
