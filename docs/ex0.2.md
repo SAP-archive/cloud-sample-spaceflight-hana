@@ -110,6 +110,7 @@ You have now finished this pre-requisite step.
     
     The error comes from the fact that the syntax checker has assumed the reference to `spaceflight-model` refers to some local CDS file in the current project, when in fact, it refers to the name of the NPM dependency we added into the `package.json` file above.  This name will not exist until ***after*** we have run the CDS Compiler.
 
+    Save your changes to the `data-model.cds` file.
 
 1. By default, SAP Web IDE will run the CDS compiler each time you save a `.cds` file.
 
@@ -117,6 +118,6 @@ You have now finished this pre-requisite step.
     
     ![CDS Build on Save](./img/Ex0_CDS_Build_On_Save.png)
 
-    Don't forget to press "Save" at the bottom of the screen!
+    If you change this setting, don't forget to press "Save" at the bottom of the screen!
 
 # \</prerequisite>
