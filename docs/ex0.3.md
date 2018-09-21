@@ -83,6 +83,10 @@ The purpose of the CDS compiler is firstly to transform the database agnostic `.
 
 1. As a result of running the CDS Compiler, you will now find that your `db/src/gen` folder has been populated.  These are the files that now need to be deployed to your HANA HDI Container.
 
+    ![Generated files](./img/Ex0_Gen_folder.png)
+
+    Notice also that there is a subdirectory called `spaceflight-model`.  This folder was created by running the additional build script `reuseTableData` (see line 9 in [package.json](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/package.json)) and contains all the `.csv` files needed to populate the database tables after they have been deployed.
+
 
 
 <a name="3.2">
