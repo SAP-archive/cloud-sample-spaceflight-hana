@@ -15,6 +15,7 @@ The information imported from the remote Git repository does ***not*** will not 
 
 
 <a name="3.1">
+
 ## 3.1 Compile the Data Model
 
 First, we must compile the database agnostic `.cds` files into a form suitable for deployment to HANA. For more information on the behaviour of the CDS compiler, please read this [brief overview](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/cdsCompile.md)
@@ -83,6 +84,7 @@ First, we must compile the database agnostic `.cds` files into a form suitable f
 
 
 <a name="3.2">
+
 ## 3.2 Deploy the Compiled Data Model to HANA
 
 Now that all the `.cds` files have been transformed into `.hdbcds` files, we can deploy this definition to HANA.
@@ -114,6 +116,7 @@ Now that all the `.cds` files have been transformed into `.hdbcds` files, we can
 
 
 <a name="3.3">
+
 ## 3.3 Remember Your HDI Container Name
 
 Although it is not essential, it is useful to make a note of the HDI Container name that is created when you deploy your CDS Data Model to the shared HANA DB.  You might need to know this when you later connect using the Database Explorer tool in Web IDE.
