@@ -32,19 +32,18 @@ You have now finished this pre-requisite step.
 
 1. Enter the name `cloud-sample-spaceflight-hana` and press Next
 
-1. At this point, everything looks OK, but the "Next" button at the bottom of the screen is greyed out.  This is because we have used hyphens in the application name, and the Java Application Id and Java package names don't accept hyphens.
+1. Here we must decide whether to include a Java service and a database.  In our particular case, we are not interested in creating a Java service, but we do want a database (albeit one imported from a different Git repository).
 
-   In our particular case, this will not be a problem because we are not interested in the Java service part of this project.  Nonetheless, we need to change all the hyphen characters to underscores in order to keep the input validator happy.
+    Select "SAP HANA Database" from the Database dropdown list and press Finish.
 
-    ![Application Id](./img/Ex0_App_Id.png)
+    ![Application Id](./img/Ex0_Inc_Mods.png)
 
-    Now press Finish
 
-1. As was mentioned above, we are not interested in the Java part of this project, so right-click on the `srv` folder and select Edit -> Delete
+1. Right-click on the `mta.yaml` file and select "Open Code Editor".
 
-    ![Delete the srv folder](./img/Ex0_Delete_Srv.png)
+    ![YAML Code Editor](./img/Ex0_YAML_Code_Editor.png)
 
-1. Edit the `mta.yaml` file.  Replace the contents of this file with the text below:
+1.  Replace the contents of this file with the text below:
 
     ```yaml
     ID: cloud-sample-spaceflight-hana
@@ -84,6 +83,11 @@ You have now finished this pre-requisite step.
     , "scripts": {
         "build": "cds build --clean && reuseTableData"
       }
+    , "cds": {
+        "data": {
+          "model": "db/"
+        }
+      }
     , "license": "ISC"
     }
     ```
@@ -94,7 +98,7 @@ You have now finished this pre-requisite step.
 
 1. Finally, edit `db/data-model.cds`.
 
-    Delete the only line in this file and replace it with:
+    Replace the entire file contents with this single line:
 
     ```using teched.flight.trip from 'spaceflight-model/db';```
     
@@ -106,5 +110,13 @@ You have now finished this pre-requisite step.
     
     The error comes from the fact that the syntax checker has assumed the reference to `spaceflight-model` refers to some local CDS file in the current project, when in fact, it refers to the name of the NPM dependency we added into the `package.json` file above.  This name will not exist until ***after*** we have run the CDS Compiler.
 
-   
+
+1. By default, SAP Web IDE will run the CDS compiler each time you save a `.cds` file.
+
+    If you wish, you can switch this behaviour off by selecting the preference icon down the left side ![Icon Preferences](./img/Icon_Preferences.png), then under Global Preferences, select "Core Data Services" and switch off the check box.
+    
+    ![CDS Build on Save](./img/Ex0_CDS_Build_On_Save.png)
+
+    Don't forget to press "Save" at the bottom of the screen!
+
 # \</prerequisite>
