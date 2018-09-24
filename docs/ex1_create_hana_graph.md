@@ -24,7 +24,7 @@ In order to build a graph, we must start by answering the following questions:
 1. Which database table will supply the vertex information?
 1. Which database table will supply the edge information?
 
-In order for a graph to be built, the data in your vertex and edge tables must have a defined association
+In order for a graph to be built, the data in your vertex and edge tables ***must*** be associated.
 
 ### Turning Airport and Route Information into a Graph
 
