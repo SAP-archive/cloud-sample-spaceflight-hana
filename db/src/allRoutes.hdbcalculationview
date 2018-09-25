@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore"
+    xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore"
+    id="allRoutes"
+    applyPrivilegeType="NONE"
+    dataCategory="DEFAULT"
+    schemaVersion="3.0"
+    outputViewType="Projection"
+    cacheInvalidationPeriod="HOURLY"
+    enforceSqlExecution="false">
+<descriptions defaultDescription="allRoutes"/>
+
+<localVariables>
+  <variable id="airportFrom" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties datatype="NVARCHAR" length="3" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+  <variable id="airportTo" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties datatype="NVARCHAR" length="3" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+
+<variableMappings>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="route0stop">
+    <targetVariable name="airportFrom" resourceUri="route0stop"/>
+    <localVariable>airportFrom</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="route0stop">
+    <targetVariable name="airportTo" resourceUri="route0stop"/>
+    <localVariable>airportTo</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="route1stop">
+    <targetVariable name="airportFrom" resourceUri="route1stop"/>
+    <localVariable>airportFrom</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="route1stop">
+    <targetVariable name="airportTo" resourceUri="route1stop"/>
+    <localVariable>airportTo</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="route2stops">
+    <targetVariable name="airportFrom" resourceUri="route2stops"/>
+    <localVariable>airportFrom</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="route2stops">
+    <targetVariable name="airportTo" resourceUri="route2stops"/>
+    <localVariable>airportTo</localVariable>
+  </mapping>
+</variableMappings>
+
+<dataSources>
+  <DataSource id="route0stop">
+    <resourceUri>route0stop</resourceUri>
+  </DataSource>
+  <DataSource id="route1stop">
+    <resourceUri>route1stop</resourceUri>
+  </DataSource>
+  <DataSource id="route2stops">
+    <resourceUri>route2stops</resourceUri>
+  </DataSource>
+</dataSources>
+
+<calculationViews>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="startingAirport">
+        <descriptions defaultDescription="Starting Airport"/>
+      </viewAttribute>
+      <viewAttribute id="destinationAirport">
+        <descriptions defaultDescription="Destination Airport"/>
+      </viewAttribute>
+      <viewAttribute id="routeText">
+        <descriptions defaultDescription="Route"/>
+      </viewAttribute>
+      <viewAttribute id="airlineText">
+        <descriptions defaultDescription="Airlines"/>
+      </viewAttribute>
+      <viewAttribute id="totalDistance" aggregationType="sum">
+        <descriptions defaultDescription="Total Distance"/>
+      </viewAttribute>
+      <viewAttribute id="leg1">
+        <descriptions defaultDescription="Leg 1"/>
+      </viewAttribute>
+      <viewAttribute id="leg2">
+        <descriptions defaultDescription="Leg 2"/>
+      </viewAttribute>
+      <viewAttribute id="leg3">
+        <descriptions defaultDescription="Leg 3"/>
+      </viewAttribute>
+      <viewAttribute id="stops" aggregationType="sum">
+        <descriptions defaultDescription="stops"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="startingAirport" source="STARTINGAIRPORT_IATA3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="destinationAirport" source="DESTINATIONAIRPORT_IATA3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="routeText" source="routeText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="airlineText" source="AIRLINE_IATA2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="totalDistance" source="DISTANCE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg1" source="ID"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="leg2" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="leg3" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="stops" source="stops"/>
+    </input>
+    <input node="Projection_2" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="startingAirport" source="startingAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="destinationAirport" source="destinationAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="routeText" source="routeText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="airlineText" source="airlineText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="totalDistance" source="totalDistance"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg1" source="leg1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg2" source="leg2"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="leg3" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="stops" source="stops"/>
+    </input>
+    <input node="Projection_3" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="startingAirport" source="startingAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="destinationAirport" source="destinationAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="routeText" source="routeText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="airlineText" source="airlineText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="totalDistance" source="totalDistance"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg1" source="leg1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg2" source="leg2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg3" source="leg3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="stops" source="stops"/>
+    </input>
+  </calculationView>
+
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="STARTINGAIRPORT_IATA3">
+        <descriptions defaultDescription="STARTINGAIRPORT_IATA3"/>
+      </viewAttribute>
+      <viewAttribute id="DESTINATIONAIRPORT_IATA3">
+        <descriptions defaultDescription="DESTINATIONAIRPORT_IATA3"/>
+      </viewAttribute>
+      <viewAttribute id="routeText">
+        <descriptions defaultDescription="routeText"/>
+      </viewAttribute>
+      <viewAttribute id="AIRLINE_IATA2">
+        <descriptions defaultDescription="AIRLINE_IATA2"/>
+      </viewAttribute>
+      <viewAttribute id="ID">
+        <descriptions defaultDescription="ID"/>
+      </viewAttribute>
+      <viewAttribute id="DISTANCE">
+        <descriptions defaultDescription="DISTANCE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="stops" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>0</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="route0stop">
+      <mapping xsi:type="Calculation:AttributeMapping" target="STARTINGAIRPORT_IATA3" source="STARTINGAIRPORT_IATA3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESTINATIONAIRPORT_IATA3" source="DESTINATIONAIRPORT_IATA3"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="routeText" source="routeText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AIRLINE_IATA2" source="AIRLINE_IATA2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="DISTANCE" source="DISTANCE"/>
+    </input>
+  </calculationView>
+
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="startingAirport">
+        <descriptions defaultDescription="Starting Airport"/>
+      </viewAttribute>
+      <viewAttribute id="destinationAirport">
+        <descriptions defaultDescription="Destination Airport"/>
+      </viewAttribute>
+      <viewAttribute id="routeText">
+        <descriptions defaultDescription="Route"/>
+      </viewAttribute>
+      <viewAttribute id="airlineText">
+        <descriptions defaultDescription="Airlines"/>
+      </viewAttribute>
+      <viewAttribute id="totalDistance">
+        <descriptions defaultDescription="Total Distance"/>
+      </viewAttribute>
+      <viewAttribute id="leg1">
+        <descriptions defaultDescription="Leg 1"/>
+      </viewAttribute>
+      <viewAttribute id="leg2">
+        <descriptions defaultDescription="Leg 2"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="stops" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>1</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="route1stop">
+      <mapping xsi:type="Calculation:AttributeMapping" target="startingAirport" source="startingAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="destinationAirport" source="destinationAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="routeText" source="routeText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="airlineText" source="airlineText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="totalDistance" source="totalDistance"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg1" source="leg1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg2" source="leg2"/>
+    </input>
+  </calculationView>
+
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <viewAttributes>
+      <viewAttribute id="startingAirport">
+        <descriptions defaultDescription="Starting Airport"/>
+      </viewAttribute>
+      <viewAttribute id="destinationAirport">
+        <descriptions defaultDescription="Destination Airport"/>
+      </viewAttribute>
+      <viewAttribute id="routeText">
+        <descriptions defaultDescription="Route"/>
+      </viewAttribute>
+      <viewAttribute id="airlineText">
+        <descriptions defaultDescription="Airlines"/>
+      </viewAttribute>
+      <viewAttribute id="totalDistance">
+        <descriptions defaultDescription="Total Distance"/>
+      </viewAttribute>
+      <viewAttribute id="leg1">
+        <descriptions defaultDescription="Leg 1"/>
+      </viewAttribute>
+      <viewAttribute id="leg2">
+        <descriptions defaultDescription="Leg 2"/>
+      </viewAttribute>
+      <viewAttribute id="leg3">
+        <descriptions defaultDescription="Leg 3"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="stops" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>2</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="route2stops">
+      <mapping xsi:type="Calculation:AttributeMapping" target="startingAirport" source="startingAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="destinationAirport" source="destinationAirport"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="routeText" source="routeText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="airlineText" source="airlineText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="totalDistance" source="totalDistance"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg1" source="leg1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg2" source="leg2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="leg3" source="leg3"/>
+    </input>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Union_1">
+  <attributes>
+    <attribute id="startingAirport" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Starting Airport"/>
+      <keyMapping columnObjectName="Union_1" columnName="startingAirport"/>
+    </attribute>
+
+    <attribute id="destinationAirport" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Destination Airport"/>
+      <keyMapping columnObjectName="Union_1" columnName="destinationAirport"/>
+    </attribute>
+
+    <attribute id="stops" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="stops"/>
+      <keyMapping columnObjectName="Union_1" columnName="stops"/>
+    </attribute>
+
+    <attribute id="routeText" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Route"/>
+      <keyMapping columnObjectName="Union_1" columnName="routeText"/>
+    </attribute>
+
+    <attribute id="airlineText" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Airlines"/>
+      <keyMapping columnObjectName="Union_1" columnName="airlineText"/>
+    </attribute>
+
+    <attribute id="totalDistance" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Total Distance"/>
+      <keyMapping columnObjectName="Union_1" columnName="totalDistance"/>
+    </attribute>
+
+    <attribute id="leg1" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Leg 1"/>
+      <keyMapping columnObjectName="Union_1" columnName="leg1"/>
+    </attribute>
+
+    <attribute id="leg2" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Leg 2"/>
+      <keyMapping columnObjectName="Union_1" columnName="leg2"/>
+    </attribute>
+
+    <attribute id="leg3" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Leg 3"/>
+      <keyMapping columnObjectName="Union_1" columnName="leg3"/>
+    </attribute>
+  </attributes>
+
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="208"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-124" y="349"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="349"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="324" y="349"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
