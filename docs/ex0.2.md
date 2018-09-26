@@ -23,7 +23,10 @@ From the menu down the left side of the screen, select the Web IDE development p
 
     ![Enter Repository Name](./img/Ex0_Repo_Name.png)
 
-1. You should now have a project in your Web IDE workspace called `cloud-sample-spaceflight-hana`
+1. When th eclone completes, you will see a success message in the top right corner of the screen and you will also have a project in your Web IDE workspace called `cloud-sample-spaceflight-hana`
+
+    ![Clone Complete](./img/Ex0_Clone_Completed.png)
+
 
 You have now finished this pre-requisite step.
 
