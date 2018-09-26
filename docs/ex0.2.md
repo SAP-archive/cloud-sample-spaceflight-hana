@@ -1,5 +1,7 @@
 # Prerequisite 2: Create a New Project
 
+<a name="top"></a>
+
 You have two options for how to create a new project.  You can either:
 
 * Create the project manually, or you can
@@ -9,6 +11,7 @@ However, irrespective of how you create the project, you will still need to buil
 
 From the menu down the left side of the screen, select the Web IDE development perspective ![Development](./img/Icon_Development.png)
 
+<a name="2.1"></a>
 
 ## 2.1: Create the Project by Cloning the Git Repository
 
@@ -18,9 +21,17 @@ From the menu down the left side of the screen, select the Web IDE development p
 
 1. Enter the Git repository name <https://github.com/SAP/cloud-sample-spaceflight-hana.git> and press Clone
 
+    ![Enter Repository Name](./img/Ex0_Repo_Name.png)
+
 1. You should now have a project in your Web IDE workspace called `cloud-sample-spaceflight-hana`
 
 You have now finished this pre-requisite step.
+
+<a href="#top">Top</a>
+
+
+
+<a name="2.2"></a>
 
 ## 2.2: Create the Project Manually
 
@@ -108,5 +119,7 @@ You have now finished this pre-requisite step.
     
     The error comes from the fact that the syntax checker has assumed the reference to `spaceflight-model` refers to some local CDS file in the current project, when in fact, it refers to the name of the NPM dependency we added into the `package.json` file above.  This name will not exist until ***after*** we have run the CDS Compiler.
 
+
+<a href="#top">Top</a>
    
 # \</prerequisite>
