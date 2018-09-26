@@ -89,7 +89,7 @@ The purpose of the CDS compiler is firstly to transform the database agnostic `.
 
     Notice also that there is a subdirectory called `spaceflight-model`.  This folder was created by running the additional build script `reuseTableData` (see line 9 in [package.json](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/package.json)) and contains all the `.csv` files needed to populate the database tables after they have been deployed.
 
-<a href="top">Top</a>
+<a href="#top">Top</a>
 
 
 
@@ -123,7 +123,7 @@ Now that all the `.cds` files have been transformed into `.hdbcds` files, we can
     13:41:44 (Builder) Build of /cloud-samples-spaceflight-hana/db completed successfully.
     ```
 
-<a href="top">Top</a>
+<a href="#top">Top</a>
 
 
 
@@ -153,6 +153,6 @@ Look at the third line that starts with `Created the 'cloud-samples-spaceflight-
 This is the name of your HDI Container within the shared HANA database and into which your database tables have been deployed.
 
 
-<a href="top">Top</a>
+<a href="#top">Top</a>
    
 # \</prerequisite>

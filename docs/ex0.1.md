@@ -16,7 +16,7 @@ Using the URL supplied by your instructor, start SAP Web IDE.
 
     ![Web IDE welcome screen](./img/Ex0_Web_IDE_Welcome.png)
 
-<a href="top">Top</a>
+<a href="#top">Top</a>
 
 
 
@@ -34,7 +34,7 @@ Using the URL supplied by your instructor, start SAP Web IDE.
     Please ***do not*** press the button saying "Reinstall Builder"!  
     Firstly, this action should not be necessary, and secondly, with multiple users sharing the same Cloud Foundry Space, this action should only be performed once per ***Cloud Foundry Space***, not once per ***user***.
 
-<a href="top">Top</a>
+<a href="#top">Top</a>
 
 
 <a name="1.3"></a>
@@ -53,6 +53,6 @@ Using the URL supplied by your instructor, start SAP Web IDE.
 
     You must then restart Web IDE in order to activate these new features.
    
-<a href="top">Top</a>
+<a href="#top">Top</a>
 
 # \</prerequisite>
