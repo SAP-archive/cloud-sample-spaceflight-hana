@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # Prerequisite 3: Compile and Deploy the CDS Data Model to HANA
 
 The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.
@@ -14,7 +16,7 @@ The information imported from the remote Git repository does ***not*** immediate
 
 
 
-<a name="3.1">
+<a name="3.1"></a>
 
 ## 3.1 Compile the Data Model
 
@@ -87,9 +89,11 @@ The purpose of the CDS compiler is firstly to transform the database agnostic `.
 
     Notice also that there is a subdirectory called `spaceflight-model`.  This folder was created by running the additional build script `reuseTableData` (see line 9 in [package.json](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/package.json)) and contains all the `.csv` files needed to populate the database tables after they have been deployed.
 
+<a href="top">Top</a>
 
 
-<a name="3.2">
+
+<a name="3.2"></a>
 
 ## 3.2 Deploy the Compiled Data Model to HANA
 
@@ -119,9 +123,11 @@ Now that all the `.cds` files have been transformed into `.hdbcds` files, we can
     13:41:44 (Builder) Build of /cloud-samples-spaceflight-hana/db completed successfully.
     ```
 
+<a href="top">Top</a>
 
 
-<a name="3.3">
+
+<a name="3.3"></a>
 
 ## 3.3 Remember Your HDI Container Name
 
@@ -146,6 +152,7 @@ Look at the third line that starts with `Created the 'cloud-samples-spaceflight-
 
 This is the name of your HDI Container within the shared HANA database and into which your database tables have been deployed.
 
-    
+
+<a href="top">Top</a>
    
 # \</prerequisite>

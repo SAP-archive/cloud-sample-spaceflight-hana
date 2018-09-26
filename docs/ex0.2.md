@@ -1,6 +1,6 @@
-# Prerequisite 2: Create a New Project
-
 <a name="top"></a>
+
+# Prerequisite 2: Create a New Project
 
 You have two options for how to create a new project.  You can either:
 
