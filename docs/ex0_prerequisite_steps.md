@@ -4,9 +4,10 @@ The following prerequisite steps all relate to configuring SAP Web IDE in readin
 
 Please ensure that you have successfully completed all of the following steps ***before*** proceeding with exercise 1.
 
-1. [Log on to and Configure Web IDE](./ex0.1.md)
-1. [Create a New Project](./ex0.2.md)
-1. [Compile and Deploy the CDS Data Model to HANA](./ex0.3.md)
+1. [Logon on to SAP Cloud Platform](./ex0.1.md)
+1. [Log on to and Configure Web IDE](./ex0.2.md)
+1. [Create a New Project](./ex0.3.md)
+1. [Compile and Deploy the CDS Data Model to HANA](./ex0.4.md)
 
     
 ## Summary
