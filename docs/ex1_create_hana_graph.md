@@ -1,37 +1,56 @@
 # Exercise 1: Create a HANA Graph
 
-Before we can build a HANA Graph, we need to understand what graphs are in general.
+In this exercise, we will define a Graph and then deploy it to a HANA database; however, before we can do this, we need to understand what graphs are in general.
 
 ## What is a Graph?
 
-A "graph" is a mathematical term for particular type of data visualisation, and is built from two types of information:
-    
-1. A set of points
-1. A set of connections between these points.  These connections usually have some property that describes the strength (or "weight") of the connection
+### Description
 
-The technical word for a point is a *"vertex"*, and the technical word for the connection between two points is an *"edge"*.  Therefore, when we build a HANA graph, we must answer the following questions:
+A "graph" is the mathematical term for a data structure in which two or more objects are related to each other in some way.  Two types of information are needed to build a graph:
+    
+1. A set of points (known as "vertices")
+1. A set of connections between these points (known as "edges")
+
+In addition to simply joining vertices together with edges, these edges usually have some property that describes the strength (or "weight") of the connection.
+
+The relationship between these objects is typically displayed graphically.  Something like this:
+
+![Graph](https://upload.wikimedia.org/wikipedia/commons/5/5b/6n-graf.svg)
+
+
+### So What Must I Know in Order to Build a Graph?
+In order to build a graph, we must start by answering the following questions:
 
 1. Which database table will supply the vertex information?
 1. Which database table will supply the edge information?
-1. What keys fields do these tables use?
-1. What associations are there between these two tables?
-1. What property (or properties) of the edge table can be used to describe the strength (or "weight") of connection?
 
-In our case, our graph is going to visualise all the direct flights that can be taken between airports. Therefore, we can answer the first two questions:
+In order for a graph to be built, the data in your vertex and edge tables ***must*** be associated.
 
-> The edge information will be obtained from the database table generated from the `Earthroutes` entity  
-> The vertex information will be obtained from the database table generated from the `Airports` entity
+### Turning Airport and Route Information into a Graph
 
-Notice here that the data sources are not the `Airports` or `Earthroutes` entities themselves, but rather the database tables that are generated from these entities.  
+In our case, our graph is going to visualise all the direct flights that can be taken between airports. Therefore, we know that:
 
-Do you remember from section 0.5.1 of the [prerequisites steps](./ex0_prerequisite_steps.md) you were asked to make a note of the table names `TECHED_FLIGHT_TRIP_AIRPORTS` and `TECHED_FLIGHT_TRIP_EARTHROUTES`?  In order to define the HANA graph, we need to know these two table names.
+* The vertex information will be obtained from the database table generated from the `Airports` entity
+* The edge information will be obtained from the database table generated from the `Earthroutes` entity  
+
+***IMPORTANT***  
+Notice here that the `Airports` and `Earthroutes` entities defined in the CDS Data Model are not the data sources for our vertex and edge information.  Instead, the data sources are the database tables generated as a result of compiling and deploying the CDS Data Model to HANA.
 
 This is an important distinction because we need to understand how the CDS compiler transforms an entity name in a `.cds` file into a database table name (defined in a `.hdbcds` file).
 
-In order to answer the remaining questions, we need to look inside the SQL table definitions.
+In order to define the HANA graph, we need to know the following relationship:
+
+| CDS Entity | | Generated Table Name |
+|---|---|---|
+| `Airports` | becomes | `TECHED_FLIGHT_TRIP_AIRPORTS` |
+| `Earthroutes` | becomes | `TECHED_FLIGHT_TRIP_EARTHROUTES` |
+
+
+This is why, in [prerequisite step 3.1](./ex0.3.md#3.1), you were asked to make a note of the above two generated table names.
 
 ***IMPORTANT***  
 Only tables with a single key field may be selected for use in a HANA Graph!
+
 
 
 ## Exercise Steps
@@ -46,11 +65,22 @@ Only tables with a single key field may be selected for use in a HANA Graph!
 
 1. This file is pre-populated with a template graph declaration that we will modify; however, before we can modify this file, we need to know which fields from which tables will be used
 
-1. Right-click on the `db` folder and select "Open HDI Container".  In order for this step to work correctly, you must first have already compiled and deployed your data model to HANA (as detailed in the [prerequisites steps](./ex0_prerequisite_steps.md))
+1. At this point, it is assumed you have successfully completed [prerequisite step 3](./ex0.3.md) in which you compiled and deployed your CDS Data Model to HANA.  If this step has not been completed, please complete it now!
+
+1. Right-click on the `db` folder and select "Open HDI Container".
 
     ![Database Explorer](./img/Ex1_Open_HDI_Container.png)
+    
+    ***Warning***  
+    After selecting "Open HDI Container", it is possible that you might see the following error message:
+    
+    ![Error Opening HDI Container](./img/Ex1_HDI_Error.png)
+    
+    This is not correct!  If you see this error message, close the pop-up and then press the refresh button in the top right of the Database Explorer pane:
+    
+    ![Refresh DB Explorer](./img/Ex1_Refresh_DB_Exp.png)
 
-1. The Database Explorer tool now opens and connects to your HDI Container.  Now select "Tables".
+1. The Database Explorer is now connected to your HDI container.  Expand the container name and select "Tables".
 
     ![DB Tables](./img/Ex1_DB_Tables.png)
 
@@ -101,7 +131,7 @@ Only tables with a single key field may be selected for use in a HANA Graph!
 
     ![Graph Workspace](./img/Ex1_Display_Graph.png)
     
-    You can now see a graphical representation of all the direct flights listed in the `TECHED_FLIGHT_TRIP_EARTHROUTES` table.  In this case the graph is centred on Amsterdam-Schipol Airport in the Netherlands.
+    You can now see a graphical representation of all the direct flights listed in the `TECHED_FLIGHT_TRIP_EARTHROUTES` table.  In this case the graph is centred on the airport with the IATA location code `AMS` (Amsterdam-Schipol Airport in the Netherlands).
     
     ![Earthroutes Graph](./img/Ex1_Earthroutes_Graph.png)
 
