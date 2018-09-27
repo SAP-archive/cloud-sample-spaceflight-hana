@@ -2,7 +2,7 @@
 
 # Prerequisite 2: Log on to and Configure Web IDE
 
-In the previous prerequisite step, you logged on the SAP Cloud Platform and found the link your your specific instance of SAP Web IDE.
+In the previous prerequisite step, you logged on the SAP Cloud Platform and found the link to your specific instance of SAP Web IDE.
 
 <a name="2.1"></a>
 

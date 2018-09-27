@@ -8,7 +8,7 @@ Here, you will log on to the SAP Cloud Platform in order to obtain the link to y
 
 ## 1.1: Log on to SAP Cloud Platform
 
-1. Visit the <a href="https://cloudplatform.sap.com" target="_new">SAP Cloud Platform</a> home page
+1. Visit the <a href="https://cloudplatform.sap.com" target="_blank">SAP Cloud Platform</a> home page
 
     ![Web IDE logon](./img/Ex0_CP_Page.png)
 
