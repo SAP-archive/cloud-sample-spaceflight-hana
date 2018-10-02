@@ -136,4 +136,7 @@ Only tables with a single key field may be selected for use in a HANA Graph!
     ![Earthroutes Graph](./img/Ex1_Earthroutes_Graph.png)
 
 
+
+[Next Exercise](./ex2_shortest_path.md)
+
 # \</exercise>
