@@ -50,6 +50,7 @@ Once you have completed the pre-requisite steps, you are then ready to perform t
 1. [Adapt the HANA Graph to show the shortest path between two airports](./docs/ex2_shortest_path.md)
 1. [Create a calculation view showing direct flights](./docs/ex3_no_stops_calc_view.md)
 1. [Create a calculation view showing routes requiring one stop](./docs/ex4_one_stop_calc_view.md)
+1. [Expose Calculation Views as an OData Service](./docs/ex5_calc_view_as_odata_srv.md)
 
 
 
