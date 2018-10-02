@@ -6,8 +6,6 @@ In this last exercise, we will expose all our calculation views as individual en
 
 ## Exercise Steps
 
-For each of the three calculation views (`route0stop`, `route1stop` and `route2stops`), repeat the following steps:
-
 1. Right-click on the project name and select New -> NodeJS Module
     
     ![New NodeJS Module](./img/Ex5_NodeJS_Mod.png)
