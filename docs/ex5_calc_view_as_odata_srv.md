@@ -71,7 +71,7 @@ In this last exercise, we will expose all our calculation views as individual en
 
    When you select this option for the first time, it will take some time to work because an `npm install` is being run behind the scenes to generate a new NodeJS application.  This app is then deployed to the SAP Cloud Platform.  Running this option a second time is always much quicker (unless you change something like the `package.json` file)
    
-1. Once the build and deploy has finished. at the bottom of the SAP Web IDE screen, you will see a message saying "Application is running" and above, you will see the URL to the running app.
+1. Once the build and deploy has finished, at the bottom of the SAP Web IDE screen, you will see a message saying "Application is running" and above, you will see the URL to the running app.
 
     ![NodeJS Application Running](./img/Ex5_App_Started.png)
 
@@ -96,7 +96,7 @@ In this last exercise, we will expose all our calculation views as individual en
 
     Notice that each of our entity sets has a corresponding `Parameters` entity set.  So in order to read some data from a calculation view, we must do so using a `Parameters` entity set.
 
-1.  Here we will search for direct flights form London Heathrow to New York John F. Kennedy.  To invoke this search, change the URL to the following:
+1.  Here we will search for direct flights from London Heathrow to New York John F. Kennedy.  To invoke this search, change the URL to the following:
 
     `xsodata/AllRoutes.xsodata/DirectFlightsParameters(airportFrom='LHR',airportTo='JFK')/Results`
 
@@ -165,6 +165,6 @@ In this last exercise, we will expose all our calculation views as individual en
 
 
 
-[Previous Exercise](./ex4_)
+[Previous Exercise](./ex4_one_stop_calc_view.md)
 
 # \</exercise>
