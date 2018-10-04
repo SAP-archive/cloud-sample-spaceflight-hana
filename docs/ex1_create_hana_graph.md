@@ -46,7 +46,7 @@ In order to define the HANA graph, we need to know the following relationship:
 | `Earthroutes` | becomes | `TECHED_FLIGHT_TRIP_EARTHROUTES` |
 
 
-This is why, in [prerequisite step 2.1](./ex0.3.md#2.1), you were asked to make a note of the above two generated table names.
+This is why, in [prerequisite step 3.1](./ex0.4.md#3.1), you were asked to make a note of the above two generated table names.
 
 ***IMPORTANT***  
 Only tables with a single key field may be selected for use in a HANA Graph!
