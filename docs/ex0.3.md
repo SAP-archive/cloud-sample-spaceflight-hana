@@ -28,7 +28,7 @@ From the menu down the left side of the screen, select the Web IDE development p
     ![Clone Complete](./img/Ex0_Clone_Completed.png)
 
 
-You have now finished this pre-requisite step.
+You have now finished this pre-requisite step.  Please proceed to [prerequisite step 4](./0.4.md)
 
 <a href="#top">Top</a>
 
@@ -36,7 +36,9 @@ You have now finished this pre-requisite step.
 
 <a name="3.2"></a>
 
-## 3.2: Create the Project Manually
+## 3.2: Or Create the Project Manually
+
+If you have already cloned the Git repository, then the following steps are not needed!
 
 1. Right-click on the top level `Workspace` and select New -> Project From Template
 
