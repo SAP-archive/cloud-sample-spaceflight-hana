@@ -26,7 +26,7 @@ Here, you will log on to the SAP Cloud Platform in order to obtain the link to y
 
     ![Subbaccounts Tile 3](./img/Ex0_Subaccounts3.png)
 
-1. From the menu on the left, select "Services" then click on the SAP Web IDE tile
+1. From the menu on the left, select "Services" then click on the SAP Web IDE Full-Stack tile
 
     ![Web IDE service](./img/Ex0_Web_IDE.png)
 
