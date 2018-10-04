@@ -1,0 +1,5 @@
+service {
+  "route0stop"  as "DirectFlights" keys("ID") parameters via entity;
+  "route1stop"  as "OneStop"       keys("ID") parameters via entity;
+  "route2stops" as "TwoStops"      keys("ID") parameters via entity;
+}
