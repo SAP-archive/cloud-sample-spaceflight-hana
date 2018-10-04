@@ -26,7 +26,7 @@ In the previous prerequisite step, you logged on the SAP Cloud Platform and foun
 ## 2.2: Configure Web IDE's Connection to Cloud Foundry
 
 1. From the "Workspace Preferences", select "Cloud Foundry"
-1. Select the name of your Cloud Foundry API endpoint from the drop-down list
+1. Select the name of your Cloud Foundry API endpoint from the drop-down list.  For TechEd 2018, this is EU10
 1. The values for Organisation and Space names will be selected for you since your user id is allocated only to one space within one organisation
 1. Press the "Save" button at the bottom of the screen
 
