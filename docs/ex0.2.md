@@ -6,7 +6,7 @@
 
 ## 1.1: Log on to Web IDE
 
-1. Log on using same the credentials you used in prerequisite step 1
+1. Log on using the credentials supplied by the instructor
 
     ![Web IDE logon](./img/Ex0_Web_IDE_Logon.png)
 
@@ -25,7 +25,8 @@
 
 1. From the "Workspace Preferences", select "Cloud Foundry"
 1. Select the name of your Cloud Foundry API endpoint from the drop-down list.  For TechEd 2018, this is EU10
-1. The values for Organisation and Space names will be selected for you since your user id is allocated only to one space within one organisation
+1. As soon as you select the API endpoint, you will be asked to enter you credentials.
+1. After logging on, the Organisation and Space names will be selected for you since your user id is allocated only to one space within one organisation
 1. Press the "Save" button at the bottom of the screen
 
     ***IMPORTANT***  

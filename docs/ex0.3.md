@@ -28,7 +28,7 @@ From the menu down the left side of the screen, select the Web IDE development p
     ![Clone Complete](./img/Ex0_Clone_Completed.png)
 
 
-You have now finished this pre-requisite step.  Please proceed to [prerequisite step 4](./ex0.4.md)
+You have now finished this pre-requisite step.  Please proceed to [prerequisite step 3](./ex0.4.md)
 
 <a href="#top">Top</a>
 
