@@ -1,12 +1,12 @@
 <a name="top"></a>
 
-# Prerequisite 2: Log on to and Configure Web IDE
+# Prerequisite : Log on to and Configure Web IDE
 
 In the previous prerequisite step, you logged on the SAP Cloud Platform and found the link to your specific instance of SAP Web IDE.
 
-<a name="2.1"></a>
+<a name="1.1"></a>
 
-## 2.1: Log on to Web IDE
+## 1.1: Log on to Web IDE
 
 1. Log on using same the credentials you used in prerequisite step 1
 
@@ -21,9 +21,9 @@ In the previous prerequisite step, you logged on the SAP Cloud Platform and foun
 
 
    
-<a name="2.2"></a>
+<a name="1.2"></a>
 
-## 2.2: Configure Web IDE's Connection to Cloud Foundry
+## 1.2: Configure Web IDE's Connection to Cloud Foundry
 
 1. From the "Workspace Preferences", select "Cloud Foundry"
 1. Select the name of your Cloud Foundry API endpoint from the drop-down list.  For TechEd 2018, this is EU10
@@ -37,9 +37,9 @@ In the previous prerequisite step, you logged on the SAP Cloud Platform and foun
 <a href="#top">Top</a>
 
 
-<a name="2.3"></a>
+<a name="1.3"></a>
 
-## 2.3: Configure Web IDE Features
+## 1.3: Configure Web IDE Features
 
 1. From the "Workspace Preferences", select "Features"
 1. Ensure that all of the following features have been switched on.  

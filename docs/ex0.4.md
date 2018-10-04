@@ -1,6 +1,6 @@
 <a name="top"></a>
 
-# Prerequisite 4: Compile and Deploy the CDS Data Model to HANA
+# Prerequisite 3: Compile and Deploy the CDS Data Model to HANA
 
 The data model used by this project is imported from a different Git repository: <https://github.com/SAP/cloud-sample-spaceflight.git>.
 
@@ -12,11 +12,11 @@ The information imported from the remote Git repository does ***not*** immediate
 
 
 
-<a name="4.1"></a>
+<a name="3.1"></a>
 
-## 4.1 Compile the Data Model
+## 3.1 Compile the Data Model
 
-If you have not changed the default configuration for SAP Web IDE, then this step will already have been performed when you saved your changes to the `db/data-model/.cds` file at the end of [prerequisite step 3.2](./ex0.3.md#3.2).
+If you have not changed the default configuration for SAP Web IDE, then this step will already have been performed when you saved your changes to the `db/data-model/.cds` file at the end of [prerequisite step 2.2](./ex0.3.md#2.2).
 
 The purpose of the CDS compiler is firstly to transform the database agnostic `.cds` files into a form suitable for deployment to HANA. For more information on the behaviour of the CDS compiler, please read this [brief overview](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/cdsCompile.md)
 
@@ -89,9 +89,9 @@ The purpose of the CDS compiler is firstly to transform the database agnostic `.
 
 
 
-<a name="4.2"></a>
+<a name="3.2"></a>
 
-## 4.2 Deploy the Compiled Data Model to HANA
+## 3.2 Deploy the Compiled Data Model to HANA
 
 Now that all the `.cds` files have been transformed into `.hdbcds` files, we can deploy this definition to HANA.
 
@@ -123,9 +123,9 @@ Now that all the `.cds` files have been transformed into `.hdbcds` files, we can
 
 
 
-<a name="4.3"></a>
+<a name="3.3"></a>
 
-## 4.3 Remember Your HDI Container Name
+## 3.3 Remember Your HDI Container Name
 
 Although it is not essential, it is useful to make a note of the HDI Container name that is created when you deploy your CDS Data Model to the shared HANA DB.  You might need to know this when you later connect using the Database Explorer tool in Web IDE.
 

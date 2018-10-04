@@ -1,6 +1,6 @@
 <a name="top"></a>
 
-# Prerequisite 3: Create a New Project
+# Prerequisite 2: Create a New Project
 
 You have two options for how to create a new project.  You can either:
 
@@ -11,9 +11,9 @@ However, irrespective of how you create the project, you will still need to buil
 
 From the menu down the left side of the screen, select the Web IDE development perspective ![Development](./img/Icon_Development.png)
 
-<a name="3.1"></a>
+<a name="2.1"></a>
 
-## 3.1: Create the Project by Cloning the Git Repository
+## 2.1: Create the Project by Cloning the Git Repository
 
 1. Right-click on the top-level Workspace item and select Git -> Clone Repository
 
@@ -34,11 +34,11 @@ You have now finished this pre-requisite step.  Please proceed to [prerequisite 
 
 
 
-<a name="3.2"></a>
+<a name="2.2"></a>
 
-## 3.2: Or Create the Project Manually
+## 2.2: Or Create the Project Manually
 
-If you have already cloned the Git repository, then the following steps are not needed!
+***If you have already cloned the Git repository, then the following steps are not needed!***
 
 1. Right-click on the top level `Workspace` and select New -> Project From Template
 
