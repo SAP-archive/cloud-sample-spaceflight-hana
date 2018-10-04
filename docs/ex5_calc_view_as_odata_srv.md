@@ -18,7 +18,7 @@ In this last exercise, we will expose all our calculation views as individual en
 
     Press "Finish"
 
-1. Open the file `server.js` and change the value of the `redirectUrl` property on line 10 to the following:
+1. Open the file `all_routes/server.js` and change the value of the `redirectUrl` property on line 10 to the following:
 
     ```javascript
     "/xsodata/AllRoutes.xsodata?$format=json"
