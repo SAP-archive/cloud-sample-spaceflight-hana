@@ -55,16 +55,6 @@ Only tables with a single key field may be selected for use in a HANA Graph!
 
 ## Exercise Steps
 
-1. Right-click on the `db/src` folder and select New -> File  
-
-    ![](./img/Ex1_Create_File.png)
-
-1. Call the file `routes.hdbgraphworkspace` and press Ok
-
-    ![](./img/Ex1_Filename.png)
-
-1. This file is pre-populated with a template graph declaration that we will modify; however, before we can modify this file, we need to know which fields from which tables will be used
-
 1. At this point, it is assumed you have successfully completed [prerequisite step 2](./ex0.3.md) in which you compiled and deployed your CDS Data Model to HANA.  If this step has not been completed, please complete it now!
 
 1. Right-click on the `db` folder and select "Open HDI Container".
@@ -105,19 +95,29 @@ Only tables with a single key field may be selected for use in a HANA Graph!
     * The each direct flight listed in table `TECHED_FLIGHT_TRIP_EARTHROUTES` has a starting airport and a destination airport; therefore, the data in association `STARTINGAIRPORT_IATA3` defines where an edge starts, and the data in association `DESTINATIONAIRPORT_IATA3` defines where an edge stops
     * The `DISTANCE` field in table `TECHED_FLIGHT_TRIP_EARTHROUTES` can be used to define the weight of the connection between two vertices
 
-    <pre>
-    GRAPH WORKSPACE "<span style="background-color: yellow">ROUTES</span>"
-    
-    EDGE TABLE "<span style="background-color: yellow">TECHED_FLIGHT_TRIP_EARTHROUTES</span>"
-      SOURCE COLUMN "<span style="background-color: yellow">STARTINGAIRPORT_IATA3</span>"
-      TARGET COLUMN "<span style="background-color: yellow">DESTINATIONAIRPORT_IATA3</span>"
-      KEY COLUMN "<span style="background-color: yellow">ID</span>"
-    
-    VERTEX TABLE "<span style="background-color: yellow">TECHED_FLIGHT_TRIP_AIRPORTS</span>"
-      KEY COLUMN "<span style="background-color: yellow">IATA3</span>"
-    </pre>
+1. Right-click on the `db/src` folder and select New -> File  
 
-1. Build the `.hdbgraphworkspace` file by right-clicking on the file name and selecting Build -> Build selected file
+    ![](./img/Ex1_Create_File.png)
+
+1. Call the file `routes.hdbgraphworkspace` and press Ok
+
+    ![](./img/Ex1_Filename.png)
+
+1. Paste the following code into your `routes.hdbgraphworkspace` file
+
+    ```
+    GRAPH WORKSPACE "ROUTES"
+    
+    EDGE TABLE "TECHED_FLIGHT_TRIP_EARTHROUTES"
+      SOURCE COLUMN "STARTINGAIRPORT_IATA3"
+      TARGET COLUMN "DESTINATIONAIRPORT_IATA3"
+      KEY COLUMN "ID"
+    
+    VERTEX TABLE "TECHED_FLIGHT_TRIP_AIRPORTS"
+      KEY COLUMN "IATA3"
+    ```
+
+1. Save the file and build it by right-clicking on the file name and selecting Build -> Build selected file
 
     ![Build Graph](./img/Ex1_Build_Graph.png)
 
