@@ -8,13 +8,11 @@ Here, you will log on to the SAP Cloud Platform in order to obtain the link to y
 
 ## 1.1: Log on to SAP Cloud Platform
 
-1. Visit the <a href="https://cloudplatform.sap.com" target="_blank">SAP Cloud Platform</a> home page
+1. Visit the <https://account.hana.ondemand.com> home page
 
     ![Web IDE logon](./img/Ex0_CP_Page.png)
 
-1. Click on "Login ->" in the top right corner and use the credentials supplied by your instructor.
-
-    Please ensure that you are connected to the Productive system <https://account.hana.ondemand.com> ***not*** the Trial system <https://account.hanatrial.ondemand.com>
+1. Click on "Login" in the top right corner and use the credentials supplied by your instructor.
 
 1. Click on the Subaccounts tile
 
