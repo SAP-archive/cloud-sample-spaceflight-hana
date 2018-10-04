@@ -32,7 +32,7 @@ Here, you will log on to the SAP Cloud Platform in order to obtain the link to y
 
     ![Web IDE service](./img/Ex0_Web_IDE.png)
 
-1. In the "Take Action" tile, click on the "Go to Service" link
+1. In the "Take Action" tile, click on the "Go to Service" link.  It is recommended to start Web IDE Full-Stack in a new incognito window.  This is so as ti guarantee an empty browser cache.
 
     ![Start Web IDE](./img/Ex0_Start_Web_IDE.png)
 
