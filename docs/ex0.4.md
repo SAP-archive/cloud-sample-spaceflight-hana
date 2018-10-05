@@ -16,7 +16,10 @@ The information imported from the remote Git repository does ***not*** immediate
 
 ## 3.1 Compile the Data Model
 
-If you have not changed the default configuration for SAP Web IDE, then this step will already have been performed when you saved your changes to the `db/data-model/.cds` file at the end of [prerequisite step 2.2](./ex0.3.md#2.2).
+If you have not changed the default configuration for SAP Web IDE, then this step will already have been performed when you saved your changes to the `.cds` file at the end of [prerequisite step 2.2](./ex0.3.md#2.2).
+
+***IMPORTANT***  
+The `.cds` file in your project will be called either `db/data-model.cds` (if you created the project manually), or `db/index.cds` (if you cloned the Git repository).
 
 The purpose of the CDS compiler is firstly to transform the database agnostic `.cds` files into a form suitable for deployment to HANA. For more information on the behaviour of the CDS compiler, please read this [brief overview](https://github.com/SAP/cloud-sample-spaceflight/blob/master/docs/cdsCompile.md)
 
