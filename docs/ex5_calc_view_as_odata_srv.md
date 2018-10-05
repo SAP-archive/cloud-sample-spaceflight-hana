@@ -65,6 +65,24 @@ In this last exercise, we will expose all our calculation views as individual en
 
     1. `parameters via entity` causes the input parameters for each calculation view (`airportFrom` and `airportTo`) to be made visible through a corresponding entity set ending with the word `Parameters`
 
+1. Modify the `mta.yaml` to create a dependency from the `all_routes` NodeJS module to the `spacetravel-db` and `spacetravel-hdi-container` modules.
+
+    1. Open the `mta.yaml` file
+    1. Select the **MTA Editor** from the tab at the bottom of the editor screen
+
+        ![YAML Editor](./img/Ex5_YAML_Editor.png)
+
+    1. Select the `all_routes` module
+
+        ![YAML Dependency 1](./img/Ex5_YAML_Dep1.png)
+
+    1. Expand the "Requires" section and using the `+` button, add two dependencies to `spacetravel-db` and `spacetravel-hdi-container`.  These names will be available from the drop down list.
+    
+        Your screen will now look like this
+
+        ![YAML Dependency 2](./img/Ex5_YAML_Dep2.png)
+
+
 1. Right-click on the `all_routes` NodeJS app name and select Run -> Run as NodeJS Application
 
     ![Run NodeJS Application](./img/Ex5_Run_NodeJS.png)
