@@ -2,7 +2,7 @@
 
 ## Before you Start...
 
-In order to start this exercise, you must first have compiled and deployed your Spaceflight data model to HANA.  See pre-requisite exercises [0.4](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/docs/ex0.4.md) and [0.5](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/docs/ex0.5.md) for details.
+In order to start this exercise, you must first have compiled and deployed your Spaceflight data model to HANA.  See pre-requisite exercises [0.3](https://github.com/SAP/cloud-sample-spaceflight-hana/blob/master/docs/ex0.4.md) for details.
 
 ## Exercise Steps
 
