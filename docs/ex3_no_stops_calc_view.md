@@ -172,9 +172,6 @@ In order to start this exercise, you must first have compiled and deployed your 
     ***Important***  
     These input parameter values are case-sensitive!
 
-    > ***Warning only for Firefox Users***  
-    > Due to a Firefox specific bug, you need to enter the value in the ***second*** input parameter first; that is, enter the value for `airportTo` first, then press enter.  At this point you'll see the value for the first input parameter has now been populated with the value from the second input parameter.   Now enter the value for the first input parameter (`airportFrom`) and the calculation view will function correctly.
-
     ![Data Preview](./img/Ex3_Data_Preview2.png)
 
     Once you have entered both input parameter values (and checked that the second value has not overwritten the first value), press the "Open Content" button circled at the top of the screen shot.
@@ -185,7 +182,7 @@ In order to start this exercise, you must first have compiled and deployed your 
 
     If for some reason you see no results, then one of the following situations could have occurred:
     
-    1. You're using Firefox and the bug described above has overwritten the `airportFrom` value with the `airportTo` value; or
+    1. The `airportFrom` and `airportTo` fields contain the same value; or
     1. You have entered one or both of the 3-character IATA location codes in lowercase instead of uppercase; or
     1. You have entered two location codes between which there are genuinely no direct flights.  For instance, no carrier flies directly from Madrid in Spain (`MAD`) to Las Vegas (`LAS`)
 
