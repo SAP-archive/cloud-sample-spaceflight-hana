@@ -41,7 +41,11 @@
 ## 1.3: Configure Web IDE Features
 
 1. From the "Workspace Preferences", select "Features"
-1. Ensure that all of the following features have been switched on.  
+1. Ensure that all of the following features have been switched on.
+
+    Notice that in the bottom right corner of each Feature icon, is the Feature's version number.  SAP updates these features on a regular basis (usually every two weeks), and each time a new version is deployed, both the version number and the background colour of the icon will change.
+    
+    Therefore whilst the Features themselves need to be switched on, you should expect neither the icon colour nor the version number seen on your screen to match the screen shots shown below.
 
     ![SAP Cloud Platform Business Application Development Tools](./img/Ex0_Feature_CP_Bus_App_Dev.png)  
     ![SAP HANA Database Development Tools](./img/Ex0_Feature_HANA_DB_Dev.png)  
