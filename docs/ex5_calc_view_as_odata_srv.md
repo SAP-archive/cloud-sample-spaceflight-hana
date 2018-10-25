@@ -48,8 +48,7 @@ In this last exercise, we will expose all our calculation views as individual en
     ```
     service {
       "route0stop"  as "DirectFlights" keys("ID") parameters via entity;
-      "route1stop"  as "OneStop"       keys("ID") parameters via entity;
-      "route2stops" as "TwoStops"      keys("ID") parameters via entity;
+      "route1stop"  as "OneStop"       keys("routeText", "airlineText") parameters via entity;
     }
     ```
 
@@ -103,10 +102,8 @@ In this last exercise, we will expose all our calculation views as individual en
         "EntitySets": [
           "DirectFlights",
           "OneStop",
-          "TwoStops",
           "DirectFlightsParameters",
-          "OneStopParameters",
-          "TwoStopsParameters"
+          "OneStopParameters"
         ]
       }
     }
